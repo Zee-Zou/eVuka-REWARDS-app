@@ -12,7 +12,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { useAuth } from "@/lib/auth";
+import { useAuth } from "@/providers/AuthProvider";
 
 const MOCK_REWARDS: Reward[] = [
   {

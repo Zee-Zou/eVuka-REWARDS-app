@@ -8,6 +8,11 @@ interface PerformanceMetrics {
   timeToInteractive?: number;
 }
 
+interface MonitoringData {
+  type: string;
+  [key: string]: unknown;
+}
+
 class PerformanceMonitor {
   private static instance: PerformanceMonitor;
   private isMonitoring = false;
@@ -36,7 +41,7 @@ class PerformanceMonitor {
     // Monitor network errors
     window.addEventListener(
       "error",
-      (event) => {
+      (event: ErrorEvent) => {
         if (event.target && (event.target as HTMLElement).tagName) {
           const target = event.target as HTMLElement;
           if (
@@ -52,7 +57,7 @@ class PerformanceMonitor {
     );
 
     // Monitor unhandled promise rejections
-    window.addEventListener("unhandledrejection", (event) => {
+    window.addEventListener("unhandledrejection", (event: PromiseRejectionEvent) => {
       logger.error("Unhandled Promise Rejection:", event.reason);
       this.sendToMonitoring({
         type: "unhandled_rejection",
@@ -124,7 +129,7 @@ class PerformanceMonitor {
     });
   }
 
-  private sendToMonitoring(data: any): void {
+  private sendToMonitoring(data: MonitoringData): void {
     if (!this.endpoint) return;
 
     // Add device and browser information
@@ -139,9 +144,9 @@ class PerformanceMonitor {
         devicePixelRatio: window.devicePixelRatio,
         connection: navigator.connection
           ? {
-              effectiveType: (navigator.connection as any).effectiveType,
-              downlink: (navigator.connection as any).downlink,
-              rtt: (navigator.connection as any).rtt,
+              effectiveType: (navigator.connection as Record<string, unknown>).effectiveType,
+              downlink: (navigator.connection as Record<string, unknown>).downlink,
+              rtt: (navigator.connection as Record<string, unknown>).rtt,
             }
           : undefined,
       },
@@ -163,7 +168,7 @@ class PerformanceMonitor {
     }
   }
 
-  private sendWithFetch(data: any): void {
+  private sendWithFetch(data: MonitoringData): void {
     fetch(this.endpoint!, {
       method: "POST",
       headers: { "Content-Type": "application/json" },

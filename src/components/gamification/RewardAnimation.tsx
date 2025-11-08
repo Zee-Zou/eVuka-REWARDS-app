@@ -44,9 +44,11 @@ const RewardAnimation = ({
               : "https://assets.mixkit.co/active_storage/sfx/2000/2000-preview.mp3",
         );
         audio.volume = 0.5;
-        audio.play().catch((err) => console.error("Error playing audio:", err));
+        audio.play().catch((err) => {
+          // Error playing audio - continue silently
+        });
       } catch (error) {
-        console.error("Error with audio:", error);
+        // Audio playback not available
       }
     }
   }, [isVisible, type]);

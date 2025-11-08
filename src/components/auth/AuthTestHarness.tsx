@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { logger } from "@/lib/logger";
-import { useAuth } from "@/lib/auth";
+import { useAuth } from "@/providers/AuthProvider";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";

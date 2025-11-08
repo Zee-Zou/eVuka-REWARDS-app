@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useAuth } from "@/lib/auth";
+import { useAuth } from "@/providers/AuthProvider";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
@@ -52,7 +52,6 @@ export const MFAForm: React.FC<MFAFormProps> = ({
       setError(
         err instanceof Error ? err.message : "Failed to generate TOTP secret",
       );
-      console.error("TOTP generation error:", err);
     } finally {
       setLoading(false);
     }
@@ -95,7 +94,6 @@ export const MFAForm: React.FC<MFAFormProps> = ({
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to verify code");
-      console.error("TOTP verification error:", err);
     } finally {
       setLoading(false);
     }

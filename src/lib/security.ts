@@ -25,8 +25,6 @@ export const initSecurity = () => {
     // Monitor for suspicious activity
     monitorSuspiciousActivity();
   }
-
-  console.log("Security measures initialized");
 };
 
 /**
@@ -44,9 +42,6 @@ const enforceFrameOptions = () => {
     } catch (e) {
       // If we can't access window.top due to security restrictions,
       // we're likely in a cross-origin frame, which is already restricted
-      console.warn(
-        "Frame access denied, likely due to cross-origin restrictions",
-      );
     }
   }
 };

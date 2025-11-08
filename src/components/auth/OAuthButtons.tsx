@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { useAuth } from "@/lib/auth";
+import { useAuth } from "@/providers/AuthProvider";
 import { LoadingSpinner } from "../ui/loading-spinner";
 
 interface OAuthButtonsProps {
@@ -21,7 +21,7 @@ export const OAuthButtons = ({
       await signInWithGoogle();
       onSuccess?.();
     } catch (error) {
-      console.error("Google sign in error:", error);
+      // Error is handled by auth provider
     } finally {
       setLoading(null);
     }
@@ -33,7 +33,7 @@ export const OAuthButtons = ({
       await signInWithApple();
       onSuccess?.();
     } catch (error) {
-      console.error("Apple sign in error:", error);
+      // Error is handled by auth provider
     } finally {
       setLoading(null);
     }

@@ -4,7 +4,7 @@ interface LogEntry {
   timestamp: string;
   level: LogLevel;
   message: string;
-  data?: any;
+  data?: unknown;
 }
 
 class Logger {
@@ -24,7 +24,7 @@ class Logger {
     return Logger.instance;
   }
 
-  private log(level: LogLevel, message: string, data?: any): void {
+  private log(level: LogLevel, message: string, data?: unknown): void {
     const entry: LogEntry = {
       timestamp: new Date().toISOString(),
       level,
@@ -40,7 +40,7 @@ class Logger {
 
     // Log to console
     const consoleMethod = level === "debug" ? "log" : level;
-    console[consoleMethod](
+    (console[consoleMethod as keyof typeof console] as (...args: unknown[]) => void)(
       `[${entry.timestamp}] [${level.toUpperCase()}] ${message}`,
       data || "",
     );
@@ -62,7 +62,7 @@ class Logger {
     }).catch((err) => console.error("Failed to send log to server:", err));
   }
 
-  public debug(message: string, data?: any): void {
+  public debug(message: string, data?: unknown): void {
     if (
       import.meta.env.MODE === "development" ||
       import.meta.env.VITE_DEBUG_LOGS === "true"
@@ -71,15 +71,15 @@ class Logger {
     }
   }
 
-  public info(message: string, data?: any): void {
+  public info(message: string, data?: unknown): void {
     this.log("info", message, data);
   }
 
-  public warn(message: string, data?: any): void {
+  public warn(message: string, data?: unknown): void {
     this.log("warn", message, data);
   }
 
-  public error(message: string, data?: any): void {
+  public error(message: string, data?: unknown): void {
     this.log("error", message, data);
   }
 

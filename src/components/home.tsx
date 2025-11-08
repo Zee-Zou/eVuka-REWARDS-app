@@ -3,7 +3,7 @@ import { PointsTransaction } from "@/lib/database.types";
 import CaptureInterface from "./receipt-capture/CaptureInterface";
 import { Card } from "./ui/card";
 import { Button } from "./ui/button";
-import { useAuth } from "@/lib/auth";
+import { useAuth } from "@/providers/AuthProvider";
 import { LogOut, User, Settings } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -111,7 +111,7 @@ const Home = () => {
   };
 
   const handleSuccess = () => {
-    console.log("Capture successful");
+    // Success callback
   };
 
   if (!user) return null;

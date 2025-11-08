@@ -263,8 +263,8 @@ const CaptureInterface = (
 
         // Get the processed receipt data from the global window object
         // This is a temporary solution until we have a proper state management system
-        if (enableOCR && (window as any)._lastProcessedReceipt) {
-          const receipt = (window as any)
+        if (enableOCR && (window as Record<string, unknown>)._lastProcessedReceipt) {
+          const receipt = (window as Record<string, unknown>)
             ._lastProcessedReceipt as ProcessedReceipt;
           setProcessedReceipt(receipt);
 

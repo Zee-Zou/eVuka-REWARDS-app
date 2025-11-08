@@ -141,7 +141,7 @@ export const updateUserStreak = async (userId: string): Promise<number> => {
 
     return newStreak;
   } catch (error) {
-    console.error("Error updating streak:", error);
+    // Error updating streak
     return 0;
   }
 };
@@ -180,7 +180,7 @@ export const awardAchievement = async (
 
     return true;
   } catch (error) {
-    console.error("Error awarding achievement:", error);
+    // Error awarding achievement
     return false;
   }
 };
@@ -327,7 +327,7 @@ export const getRewardRecommendations = async (
       .sort((a, b) => b.relevance_score - a.relevance_score)
       .slice(0, limit);
   } catch (error) {
-    console.error("Error getting reward recommendations:", error);
+    // Error getting reward recommendations
     return [];
   }
 };

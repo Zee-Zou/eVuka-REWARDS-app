@@ -10,7 +10,7 @@ interface OfflineReceipt {
   id: string;
   imageData: string;
   timestamp: number;
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
 }
 
 class OfflineStorage {
@@ -58,7 +58,7 @@ class OfflineStorage {
    */
   async saveReceipt(
     imageData: string,
-    metadata?: Record<string, any>,
+    metadata?: Record<string, unknown>,
   ): Promise<string> {
     await this.init();
 
@@ -204,7 +204,7 @@ class OfflineStorage {
   /**
    * Save user preferences for offline access
    */
-  async savePreference(key: string, value: any): Promise<void> {
+  async savePreference(key: string, value: unknown): Promise<void> {
     await this.init();
 
     return new Promise((resolve, reject) => {

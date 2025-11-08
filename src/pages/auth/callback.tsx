@@ -27,7 +27,6 @@ const AuthCallbackPage = () => {
           navigate("/auth/login");
         }
       } catch (err) {
-        console.error("Error during auth callback:", err);
         setError("Authentication failed. Please try again.");
         // Redirect to login after a short delay
         setTimeout(() => navigate("/auth/login"), 3000);

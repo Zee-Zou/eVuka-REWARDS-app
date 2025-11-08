@@ -11,7 +11,8 @@ import { AuthProvider } from "./providers/AuthProvider";
 import { AuthGuard } from "./components/auth/AuthGuard";
 import { Toaster } from "./components/ui/toaster";
 import ErrorBoundary from "./components/ErrorBoundary";
-import { LoadingOverlay } from "./components/ui/loading-spinner";
+import { LoadingFallback } from "./components/LoadingFallback";
+import { ErrorFallback } from "./components/ErrorFallback";
 import PWAInstallPrompt from "./components/ui/pwa-install-prompt";
 import UpdateNotification from "./components/ui/update-notification";
 import OfflineIndicator from "./components/ui/offline-indicator";
@@ -23,7 +24,6 @@ const OfflinePage = lazy(() => import("./pages/OfflinePage"));
 const AuthTestPage = lazy(() => import("./pages/auth/test"));
 
 function App() {
-  // Log application startup for debugging purposes
   useEffect(() => {
     logger.info("Application initialized", {
       env: import.meta.env.MODE,
@@ -31,29 +31,22 @@ function App() {
     });
   }, []);
 
-  // Handle URL parameters for PWA shortcuts
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
 
-    // Handle scan shortcut
     if (params.get("scan") === "true") {
       logger.info("App launched from scan shortcut");
-      // You would navigate to the scan tab or open the camera here
-      // For example: navigate('/scan');
     }
 
-    // Handle rewards shortcut
     if (params.get("tab") === "rewards") {
       logger.info("App launched from rewards shortcut");
-      // You would navigate to the rewards tab here
-      // For example: navigate('/rewards');
     }
   }, []);
 
   return (
-    <ErrorBoundary>
+    <ErrorBoundary level="page">
       <AuthProvider>
-        <Suspense fallback={<LoadingOverlay />}>
+        <Suspense fallback={<LoadingFallback fullScreen message="Loading application..." />}>
           <>
             {/* For the tempo routes */}
             {import.meta.env.VITE_TEMPO === "true" && useRoutes(routes)}
@@ -63,30 +56,69 @@ function App() {
               <Route
                 path="/"
                 element={
-                  <AuthGuard>
-                    <Home />
-                  </AuthGuard>
+                  <ErrorBoundary level="page">
+                    <AuthGuard>
+                      <Suspense fallback={<LoadingFallback fullScreen />}>
+                        <Home />
+                      </Suspense>
+                    </AuthGuard>
+                  </ErrorBoundary>
                 }
               />
 
               {/* Auth routes */}
-              <Route path="/auth/login" element={<LoginPage />} />
-              <Route path="/auth/register" element={<RegisterPage />} />
+              <Route 
+                path="/auth/login" 
+                element={
+                  <ErrorBoundary level="section">
+                    <LoginPage />
+                  </ErrorBoundary>
+                } 
+              />
+              <Route 
+                path="/auth/register" 
+                element={
+                  <ErrorBoundary level="section">
+                    <RegisterPage />
+                  </ErrorBoundary>
+                } 
+              />
               <Route
                 path="/auth/password-reset"
-                element={<PasswordResetPage />}
+                element={
+                  <ErrorBoundary level="section">
+                    <PasswordResetPage />
+                  </ErrorBoundary>
+                }
               />
-              <Route path="/auth/verify-email" element={<VerifyEmailPage />} />
-              <Route path="/auth/callback" element={<AuthCallbackPage />} />
+              <Route 
+                path="/auth/verify-email" 
+                element={
+                  <ErrorBoundary level="section">
+                    <VerifyEmailPage />
+                  </ErrorBoundary>
+                } 
+              />
+              <Route 
+                path="/auth/callback" 
+                element={
+                  <ErrorBoundary level="section">
+                    <AuthCallbackPage />
+                  </ErrorBoundary>
+                } 
+              />
+
               {/* Auth Test Route */}
               <Route
                 path="/auth/test"
                 element={
-                  <AuthGuard>
-                    <Suspense fallback={<LoadingOverlay />}>
-                      <AuthTestPage />
-                    </Suspense>
-                  </AuthGuard>
+                  <ErrorBoundary level="page">
+                    <AuthGuard>
+                      <Suspense fallback={<LoadingFallback fullScreen />}>
+                        <AuthTestPage />
+                      </Suspense>
+                    </AuthGuard>
+                  </ErrorBoundary>
                 }
               />
 
@@ -94,11 +126,15 @@ function App() {
               <Route
                 path="/profile"
                 element={
-                  <AuthGuard>
-                    <div className="container mx-auto py-8">
-                      <UserProfileForm className="max-w-md mx-auto" />
-                    </div>
-                  </AuthGuard>
+                  <ErrorBoundary level="page">
+                    <AuthGuard>
+                      <div className="container mx-auto py-8">
+                        <Suspense fallback={<LoadingFallback />}>
+                          <UserProfileForm className="max-w-md mx-auto" />
+                        </Suspense>
+                      </div>
+                    </AuthGuard>
+                  </ErrorBoundary>
                 }
               />
 
@@ -106,9 +142,11 @@ function App() {
               <Route
                 path="/offline.html"
                 element={
-                  <Suspense fallback={<LoadingOverlay />}>
-                    <OfflinePage />
-                  </Suspense>
+                  <ErrorBoundary level="section">
+                    <Suspense fallback={<LoadingFallback />}>
+                      <OfflinePage />
+                    </Suspense>
+                  </ErrorBoundary>
                 }
               />
 
@@ -122,9 +160,15 @@ function App() {
             </Routes>
 
             {/* PWA Components */}
-            <PWAInstallPrompt position="bottom" showDelay={3000} />
-            <UpdateNotification position="top" />
-            <OfflineIndicator />
+            <ErrorBoundary level="component">
+              <PWAInstallPrompt position="bottom" showDelay={3000} />
+            </ErrorBoundary>
+            <ErrorBoundary level="component">
+              <UpdateNotification position="top" />
+            </ErrorBoundary>
+            <ErrorBoundary level="component">
+              <OfflineIndicator />
+            </ErrorBoundary>
 
             <Toaster />
           </>

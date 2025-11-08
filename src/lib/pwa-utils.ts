@@ -157,8 +157,8 @@ export function checkPwaFeatureSupport() {
     periodicSync: "PeriodicSyncManager" in window,
     persistentStorage:
       navigator.storage && navigator.storage.persist !== undefined,
-    deviceMemory: (navigator as any).deviceMemory !== undefined,
-    networkInformation: (navigator as any).connection !== undefined,
+    deviceMemory: (navigator as Record<string, unknown>).deviceMemory !== undefined,
+    networkInformation: (navigator as Record<string, unknown>).connection !== undefined,
     webPayment: "PaymentRequest" in window,
     credentials: "PasswordCredential" in window,
     vibrate: navigator.vibrate !== undefined,

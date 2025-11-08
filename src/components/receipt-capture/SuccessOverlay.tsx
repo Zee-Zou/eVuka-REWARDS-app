@@ -54,12 +54,12 @@ const SuccessOverlay = ({
             "https://assets.mixkit.co/active_storage/sfx/2005/2005-preview.mp3",
           );
           audio.volume = 0.5; // Set volume to 50%
-          audio
-            .play()
-            .catch((err) => console.error("Error playing audio:", err));
+          audio.play().catch((err) => {
+            // Error playing audio - continue silently
+          });
         }
       } catch (error) {
-        console.error("Error with audio:", error);
+        // Audio playback not available
       }
     }
   }, [isVisible, hasInteracted]);

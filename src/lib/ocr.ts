@@ -1,4 +1,4 @@
-import { createWorker } from "tesseract.js";
+import { createWorker, Worker } from "tesseract.js";
 import { logger } from "./logger";
 import { ProcessingError } from "@/types/errors";
 
@@ -39,7 +39,7 @@ export const performOCR = async (
 ): Promise<OCRResult> => {
   const startTime = Date.now();
   const { timeout = 30000, minConfidence = 30, highQuality = false } = options;
-  let worker: any;
+  let worker: Worker | null = null;
   let timeoutId: NodeJS.Timeout | null = null;
 
   try {
@@ -65,7 +65,7 @@ export const performOCR = async (
 
     // Create worker with progress logging
     worker = await createWorker({
-      logger: (m) => {
+      logger: (m: { status: string; progress: number }) => {
         if (m.status === "recognizing text") {
           // Log progress for long receipts
           logger.debug(`OCR Progress: ${Math.floor(m.progress * 100)}%`);

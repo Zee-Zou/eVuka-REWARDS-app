@@ -5,11 +5,6 @@ import { tempo } from "tempo-devtools/dist/vite";
 
 const conditionalPlugins: [string, Record<string, any>][] = [];
 
-// @ts-ignore
-if (process.env.TEMPO === "true") {
-  /* conditionalPlugins.push(["tempo-devtools/swc", {}]) [deprecated] */
-}
-
 // https://vitejs.dev/config/
 export default defineConfig({
   base:
@@ -34,5 +29,19 @@ export default defineConfig({
   server: {
     // @ts-ignore
     allowedHosts: process.env.TEMPO === "true" ? true : undefined,
+  },
+  build: {
+    target: "ES2020",
+    minify: "terser",
+    sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ["react", "react-dom", "react-router-dom"],
+          supabase: ["@supabase/supabase-js"],
+          ui: ["@radix-ui/react-dialog", "@radix-ui/react-dropdown-menu"],
+        },
+      },
+    },
   },
 });

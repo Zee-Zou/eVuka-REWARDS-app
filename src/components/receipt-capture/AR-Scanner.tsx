@@ -44,7 +44,7 @@ const ARScanner = ({ onCapture, onClose }: ARScannerProps) => {
           setIsScanning(true);
         }
       } catch (error) {
-        console.error("Error accessing camera:", error);
+        // Error accessing camera
         setIsInitializing(false);
       }
     };

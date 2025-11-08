@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "@/lib/auth";
+import { useAuth } from "@/providers/AuthProvider";
 import { LoadingOverlay } from "../ui/loading-spinner";
 
 export const AuthGuard = ({ children }: { children: React.ReactNode }) => {

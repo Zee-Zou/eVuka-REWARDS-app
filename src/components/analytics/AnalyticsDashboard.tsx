@@ -61,7 +61,7 @@ export const AnalyticsDashboard = () => {
         >("dashboard-widgets", widgets);
         setWidgets(savedWidgets);
       } catch (error) {
-        console.error("Failed to load dashboard preferences:", error);
+        // Error loading preferences - use defaults
       }
     };
 
@@ -74,7 +74,7 @@ export const AnalyticsDashboard = () => {
       await offlineStorage.savePreference("dashboard-widgets", widgets);
       setIsCustomizing(false);
     } catch (error) {
-      console.error("Failed to save dashboard preferences:", error);
+      // Error saving preferences - continue anyway
     }
   };
 

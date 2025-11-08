@@ -78,8 +78,8 @@ export const encryptData = async (data: string): Promise<string> => {
 
     return arrayBufferToBase64(combined.buffer);
   } catch (error) {
-    console.error("Encryption error:", error);
-    return data; // Fallback to unencrypted data
+    // Encryption error - return unencrypted data
+    return data;
   }
 };
 
@@ -104,8 +104,8 @@ export const decryptData = async (encryptedData: string): Promise<string> => {
 
     return ab2str(decryptedData);
   } catch (error) {
-    console.error("Decryption error:", error);
-    return encryptedData; // Return the encrypted data if decryption fails
+    // Decryption error - return encrypted data
+    return encryptedData;
   }
 };
 
