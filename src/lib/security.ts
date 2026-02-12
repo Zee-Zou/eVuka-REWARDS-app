@@ -3,6 +3,8 @@
  * Provides security-related functionality including initialization
  */
 
+import DOMPurify from 'dompurify';
+
 /**
  * Initializes security measures for the application
  * - Sets up Content Security Policy
@@ -190,43 +192,54 @@ export const validateUserInput = (input: string): boolean => {
 };
 
 /**
- * Encrypts sensitive data for storage
- * @param data The data to encrypt
- * @returns The encrypted data
+ * DEPRECATED: Use crypto-secure.ts instead for real encryption
+ *
+ * These functions now delegate to the secure crypto module which uses
+ * AES-GCM-256 encryption with PBKDF2 key derivation.
+ *
+ * Note: The new functions are async. Please update your code to use:
+ * - import { encryptData, decryptData } from './crypto-secure'
+ * - await encryptData(data)
+ * - await decryptData(encrypted)
  */
-export const encryptData = (data: string): string => {
-  // This is a placeholder - in a real app, use a proper encryption library
-  // For demonstration purposes only
-  return btoa(data); // Base64 encoding (NOT actual encryption)
-};
-
-/**
- * Decrypts data that was encrypted with encryptData
- * @param encryptedData The encrypted data
- * @returns The decrypted data
- */
-export const decryptData = (encryptedData: string): string => {
-  // This is a placeholder - in a real app, use a proper decryption method
-  // For demonstration purposes only
-  return atob(encryptedData); // Base64 decoding (NOT actual decryption)
-};
+export {
+  encryptForStorage as encryptData,
+  decryptFromStorage as decryptData,
+  encryptData as encryptDataAsync,
+  decryptData as decryptDataAsync,
+  clearEncryptionSession,
+  isEncryptionAvailable,
+} from './crypto-secure';
 
 /**
  * Sanitizes HTML content to prevent XSS attacks
+ * Uses DOMPurify for comprehensive, battle-tested XSS protection
  * @param html The HTML content to sanitize
- * @returns Sanitized HTML content
+ * @param config Optional DOMPurify configuration
+ * @returns Sanitized HTML content safe for rendering
  */
-export const sanitizeHtml = (html: string): string => {
-  // This is a simplified example
-  // In a real application, use a library like DOMPurify
+export const sanitizeHtml = (
+  html: string,
+  config?: DOMPurify.Config
+): string => {
+  // Default safe configuration
+  const defaultConfig: DOMPurify.Config = {
+    ALLOWED_TAGS: [
+      'b', 'i', 'em', 'strong', 'a', 'p', 'br', 'span', 'div',
+      'ul', 'ol', 'li', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+      'blockquote', 'code', 'pre'
+    ],
+    ALLOWED_ATTR: ['href', 'target', 'rel', 'class', 'id'],
+    ALLOW_DATA_ATTR: false, // Prevent data-* attributes which can be exploited
+    ALLOWED_URI_REGEXP: /^(?:(?:(?:f|ht)tps?|mailto|tel|callto|sms|cid|xmpp):|[^a-z]|[a-z+.\-]+(?:[^a-z+.\-:]|$))/i,
+    SAFE_FOR_TEMPLATES: true, // Extra safety for template rendering
+    RETURN_TRUSTED_TYPE: false, // Return string, not TrustedHTML
+  };
 
-  // Replace potentially dangerous tags
-  let sanitized = html
-    .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "")
-    .replace(/on\w+="[^"]*"/gi, "")
-    .replace(/on\w+='[^']*'/gi, "");
+  // Merge with custom config if provided
+  const finalConfig = config ? { ...defaultConfig, ...config } : defaultConfig;
 
-  return sanitized;
+  return DOMPurify.sanitize(html, finalConfig);
 };
 
 /**

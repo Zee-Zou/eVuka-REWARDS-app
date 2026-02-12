@@ -9,7 +9,7 @@ interface EnvConfig {
   supabase: {
     url: string;
     anonKey: string;
-    serviceKey?: string;
+    // serviceKey removed - should NEVER be in client-side config
   };
   app: {
     mode: "development" | "production";
@@ -94,12 +94,18 @@ class EnvironmentValidator {
       );
     }
 
-    // Service key is optional but warn if not set in production
+    // ⚠️ CRITICAL SECURITY CHECK ⚠️
+    // Service key should NEVER be accessible in client code
+    // It bypasses ALL Row Level Security policies
     const serviceKey = import.meta.env.SUPABASE_SERVICE_KEY;
-    if (import.meta.env.MODE === "production" && !serviceKey) {
-      logger.warn(
-        "SUPABASE_SERVICE_KEY is not set. Some server-side operations may fail."
+    if (serviceKey) {
+      this.validationErrors.push(
+        "CRITICAL SECURITY ERROR: SUPABASE_SERVICE_KEY detected in client bundle! " +
+        "This key bypasses all security and should NEVER be exposed to clients. " +
+        "Remove this from your .env file or ensure it's not prefixed with VITE_. " +
+        "Service keys should only be used in server-side code (Supabase Edge Functions, backend servers)."
       );
+      logger.error("🔴 SECURITY VIOLATION: Service key exposed in client code!");
     }
   }
 
@@ -149,6 +155,7 @@ class EnvironmentValidator {
 
   /**
    * Get the validated configuration
+   * Note: Service key is intentionally excluded from client config for security
    */
   public getConfig(): EnvConfig {
     if (!this.config) {
@@ -156,7 +163,8 @@ class EnvironmentValidator {
         supabase: {
           url: import.meta.env.VITE_SUPABASE_URL || "",
           anonKey: import.meta.env.VITE_SUPABASE_ANON_KEY || "",
-          serviceKey: import.meta.env.SUPABASE_SERVICE_KEY,
+          // Service key intentionally removed - should NEVER be in client code
+          // Use Supabase Edge Functions for server-side operations requiring service key
         },
         app: {
           mode: (import.meta.env.MODE as "development" | "production") || "production",

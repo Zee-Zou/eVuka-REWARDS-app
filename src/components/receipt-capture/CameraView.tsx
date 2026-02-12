@@ -60,6 +60,8 @@ const CameraView = ({
 
   const videoRef = useRef<HTMLVideoElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const streamRef = useRef<MediaStream | null>(null); // Track stream for cleanup
+  const cleanupFunctionsRef = useRef<Array<() => void>>([]); // Track all cleanup functions
 
   // Ambient light detection
   const detectAmbientLight = useCallback(() => {
@@ -78,8 +80,14 @@ const CameraView = ({
 
   useEffect(() => {
     if (isActive) {
+      // Clear any previous cleanup functions
+      cleanupFunctionsRef.current = [];
+
       initializeCamera();
-      const cleanup = detectAmbientLight();
+      const ambientLightCleanup = detectAmbientLight();
+      if (ambientLightCleanup) {
+        cleanupFunctionsRef.current.push(ambientLightCleanup);
+      }
 
       // Handle device orientation changes
       const handleOrientationChange = () => {
@@ -103,16 +111,40 @@ const CameraView = ({
       window.addEventListener("orientationchange", handleOrientationChange);
       window.addEventListener("resize", handleOrientationChange);
 
-      return () => {
-        if (cleanup) cleanup();
-        if (stream) {
-          stream.getTracks().forEach((track) => track.stop());
-        }
-        window.removeEventListener(
-          "orientationchange",
-          handleOrientationChange,
-        );
+      // Register event listener cleanup
+      cleanupFunctionsRef.current.push(() => {
+        window.removeEventListener("orientationchange", handleOrientationChange);
         window.removeEventListener("resize", handleOrientationChange);
+      });
+
+      // Comprehensive cleanup function
+      return () => {
+        // Execute all registered cleanup functions
+        cleanupFunctionsRef.current.forEach((fn) => {
+          try {
+            fn();
+          } catch (error) {
+            logger.error("Error during cleanup:", error);
+          }
+        });
+        cleanupFunctionsRef.current = [];
+
+        // Stop media stream and clear video element
+        if (streamRef.current) {
+          streamRef.current.getTracks().forEach((track) => {
+            track.stop();
+            logger.info(`Stopped media track: ${track.kind}`);
+          });
+          streamRef.current = null;
+        }
+
+        // Clear video element srcObject
+        if (videoRef.current) {
+          videoRef.current.srcObject = null;
+        }
+
+        // Reset state
+        setStream(null);
       };
     }
   }, [isActive, detectAmbientLight]);
@@ -145,6 +177,7 @@ const CameraView = ({
           });
         });
       setStream(mediaStream);
+      streamRef.current = mediaStream; // Store in ref for cleanup
 
       if (videoRef.current) {
         videoRef.current.srcObject = mediaStream;

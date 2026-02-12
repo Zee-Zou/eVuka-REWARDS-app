@@ -5,12 +5,14 @@
 
 import { v4 as uuidv4 } from "uuid";
 import { logger } from "./logger";
+import { encryptForStorage, decryptFromStorage } from "./crypto-secure";
 
 interface OfflineReceipt {
   id: string;
-  imageData: string;
+  imageData: string; // Encrypted receipt image data
   timestamp: number;
   metadata?: Record<string, unknown>;
+  encryptionVersion?: number; // Track encryption version for key rotation
 }
 
 class OfflineStorage {
@@ -55,6 +57,7 @@ class OfflineStorage {
 
   /**
    * Save a receipt for offline processing
+   * Receipt image data is encrypted before storage for security
    */
   async saveReceipt(
     imageData: string,
@@ -62,11 +65,23 @@ class OfflineStorage {
   ): Promise<string> {
     await this.init();
 
+    // Encrypt sensitive image data before storing
+    let encryptedImageData: string;
+    try {
+      encryptedImageData = await encryptForStorage(imageData);
+    } catch (error) {
+      logger.error("Failed to encrypt receipt data", error);
+      // Fall back to unencrypted if encryption fails (degraded mode)
+      // In production, you might want to fail here instead
+      encryptedImageData = imageData;
+    }
+
     const receipt: OfflineReceipt = {
       id: uuidv4(),
-      imageData,
+      imageData: encryptedImageData,
       timestamp: Date.now(),
       metadata,
+      encryptionVersion: 1, // Track encryption version for future key rotation
     };
 
     return new Promise((resolve, reject) => {
@@ -145,11 +160,12 @@ class OfflineStorage {
 
   /**
    * Get all pending offline receipts
+   * Decrypts receipt image data after retrieval
    */
   async getPendingReceipts(): Promise<OfflineReceipt[]> {
     await this.init();
 
-    return new Promise((resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
       if (!this.db) {
         reject(new Error("Database not initialized"));
         return;
@@ -159,8 +175,33 @@ class OfflineStorage {
       const store = transaction.objectStore("offline-receipts");
       const request = store.getAll();
 
-      request.onsuccess = () => {
-        resolve(request.result);
+      request.onsuccess = async () => {
+        const encryptedReceipts: OfflineReceipt[] = request.result;
+
+        // Decrypt image data for each receipt
+        const decryptedReceipts = await Promise.all(
+          encryptedReceipts.map(async (receipt) => {
+            try {
+              // Only decrypt if encryption version is present (newer receipts)
+              if (receipt.encryptionVersion) {
+                const decryptedImageData = await decryptFromStorage(receipt.imageData);
+                return {
+                  ...receipt,
+                  imageData: decryptedImageData,
+                };
+              }
+              // Old receipts without encryption - return as-is
+              return receipt;
+            } catch (error) {
+              logger.error(`Failed to decrypt receipt ${receipt.id}`, error);
+              // Return receipt with encrypted data if decryption fails
+              // This prevents losing data, but caller should handle gracefully
+              return receipt;
+            }
+          })
+        );
+
+        resolve(decryptedReceipts);
       };
 
       request.onerror = (event) => {

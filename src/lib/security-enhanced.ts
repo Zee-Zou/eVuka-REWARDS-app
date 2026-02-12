@@ -1,5 +1,6 @@
 import { logger } from "./logger";
 import { encryptData, decryptData } from "../components/ui/data-encryption";
+import DOMPurify from 'dompurify';
 
 // Enhanced Content Security Policy setup
 export const setupCSP = () => {
@@ -63,22 +64,20 @@ export const setupCSP = () => {
   }
 };
 
-// Enhanced XSS Protection
+// Enhanced XSS Protection using DOMPurify
 export const sanitizeInput = (input: string): string => {
   if (!input) return "";
-  return input
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#x27;")
-    .replace(/\//g, "&#x2F;")
-    .replace(/`/g, "&#x60;")
-    .replace(/\(/g, "&#40;")
-    .replace(/\)/g, "&#41;")
-    .replace(/javascript:/gi, "")
-    .replace(/data:/gi, "")
-    .replace(/vbscript:/gi, "");
+
+  // Use DOMPurify to sanitize text input
+  // ALLOWED_TAGS: [] means strip ALL HTML tags, returning only text
+  // This is perfect for user input fields where HTML is not expected
+  return DOMPurify.sanitize(input, {
+    ALLOWED_TAGS: [], // No HTML tags allowed - strip everything
+    ALLOWED_ATTR: [], // No attributes allowed
+    KEEP_CONTENT: true, // Keep the text content
+    ALLOW_DATA_ATTR: false,
+    SAFE_FOR_TEMPLATES: true,
+  });
 };
 
 // Validate and sanitize URL to prevent open redirect vulnerabilities

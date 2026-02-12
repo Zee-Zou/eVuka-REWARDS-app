@@ -1,11 +1,5 @@
 import React, { Suspense, useEffect, lazy } from "react";
 import { Routes, Route, useRoutes, Navigate } from "react-router-dom";
-import Home from "./components/home";
-import LoginPage from "./pages/auth/login";
-import RegisterPage from "./pages/auth/register";
-import AuthCallbackPage from "./pages/auth/callback";
-import PasswordResetPage from "./pages/auth/password-reset";
-import VerifyEmailPage from "./pages/auth/verify-email";
 import routes from "tempo-routes";
 import { AuthProvider } from "./providers/AuthProvider";
 import { AuthGuard } from "./components/auth/AuthGuard";
@@ -17,11 +11,21 @@ import PWAInstallPrompt from "./components/ui/pwa-install-prompt";
 import UpdateNotification from "./components/ui/update-notification";
 import OfflineIndicator from "./components/ui/offline-indicator";
 import { logger } from "./lib/logger";
-import UserProfileForm from "./components/auth/UserProfileForm";
 
-// Lazy load non-critical routes for better performance
+// Lazy load ALL routes for optimal bundle splitting and faster initial load
+// Critical routes load first when needed
+const Home = lazy(() => import("./components/home"));
+const LoginPage = lazy(() => import("./pages/auth/login"));
+const RegisterPage = lazy(() => import("./pages/auth/register"));
+const AuthCallbackPage = lazy(() => import("./pages/auth/callback"));
+const PasswordResetPage = lazy(() => import("./pages/auth/password-reset"));
+const VerifyEmailPage = lazy(() => import("./pages/auth/verify-email"));
+const UserProfileForm = lazy(() => import("./components/auth/UserProfileForm"));
+
+// Non-critical routes
 const OfflinePage = lazy(() => import("./pages/OfflinePage"));
 const AuthTestPage = lazy(() => import("./pages/auth/test"));
+const ShareReceiptHandler = lazy(() => import("./pages/ShareReceiptHandler"));
 
 function App() {
   useEffect(() => {
@@ -145,6 +149,18 @@ function App() {
                   <ErrorBoundary level="section">
                     <Suspense fallback={<LoadingFallback />}>
                       <OfflinePage />
+                    </Suspense>
+                  </ErrorBoundary>
+                }
+              />
+
+              {/* Share Target Handler */}
+              <Route
+                path="/share-receipt"
+                element={
+                  <ErrorBoundary level="section">
+                    <Suspense fallback={<LoadingFallback />}>
+                      <ShareReceiptHandler />
                     </Suspense>
                   </ErrorBoundary>
                 }

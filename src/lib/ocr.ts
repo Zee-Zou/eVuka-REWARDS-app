@@ -1,6 +1,7 @@
 import { createWorker, Worker } from "tesseract.js";
 import { logger } from "./logger";
 import { ProcessingError } from "@/types/errors";
+import { performOCRWithPool } from "./ocr-worker-pool";
 
 export interface OCRResult {
   text: string;
@@ -25,11 +26,43 @@ export enum OCRErrorType {
 
 /**
  * Performs OCR on an image to extract text
+ * Uses worker pool by default for better performance
  * @param imageData Base64 encoded image data
  * @param options Configuration options for OCR processing
  * @returns Promise with OCR result containing extracted text and confidence score
  */
 export const performOCR = async (
+  imageData: string,
+  options: {
+    timeout?: number;
+    minConfidence?: number;
+    highQuality?: boolean;
+    usePool?: boolean; // Default true - set false to use single worker
+  } = {},
+): Promise<OCRResult> => {
+  const { usePool = true, ...ocrOptions } = options;
+
+  // Use worker pool by default for better performance
+  if (usePool) {
+    try {
+      return await performOCRWithPool(imageData, ocrOptions);
+    } catch (error) {
+      // If pool fails, fall back to single worker
+      logger.warn("Worker pool failed, falling back to single worker:", error);
+      return performOCRSingleWorker(imageData, ocrOptions);
+    }
+  }
+
+  // Use single worker if explicitly requested
+  return performOCRSingleWorker(imageData, ocrOptions);
+};
+
+/**
+ * Performs OCR using a single worker (legacy implementation)
+ * Creates and terminates a worker for each request
+ * @internal
+ */
+const performOCRSingleWorker = async (
   imageData: string,
   options: {
     timeout?: number;
