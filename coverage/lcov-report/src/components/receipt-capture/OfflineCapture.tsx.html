@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">1.08% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/101</span>
+                <span class='fraction'>1/92</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/25</span>
+                <span class='fraction'>0/32</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">1.13% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/97</span>
+                <span class='fraction'>1/88</span>
             </div>
         
             
@@ -361,24 +361,24 @@
 <a name='L296'></a><a href='#L296'>296</a>
 <a name='L297'></a><a href='#L297'>297</a>
 <a name='L298'></a><a href='#L298'>298</a>
-<a name='L299'></a><a href='#L299'>299</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<a name='L299'></a><a href='#L299'>299</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -658,22 +658,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import React, { useState } from "react";</span>
-<span class="cstat-no" title="statement not covered" >import { Card } from "../ui/card";</span>
-<span class="cstat-no" title="statement not covered" >import { Button } from "../ui/button";</span>
-<span class="cstat-no" title="statement not covered" >import { Alert, AlertDescription } from "../ui/alert";</span>
-<span class="cstat-no" title="statement not covered" >import { LoadingSpinner } from "../ui/loading-spinner";</span>
-<span class="cstat-no" title="statement not covered" >import { WifiOff, Camera, Upload, Save, AlertCircle } from "lucide-react";</span>
-<span class="cstat-no" title="statement not covered" >import { offlineStorage } from "@/lib/offline-storage";</span>
-<span class="cstat-no" title="statement not covered" >import { logger } from "@/lib/logger";</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useState } from "react";
+import { Card } from "../ui/card";
+import { Button } from "../ui/button";
+import { Alert, AlertDescription } from "../ui/alert";
+import { LoadingSpinner } from "../ui/loading-spinner";
+import { WifiOff, Camera, Upload, Save, AlertCircle } from "lucide-react";
+import { offlineStorage } from "@/lib/offline-storage";
+import { logger } from "@/lib/logger";
 &nbsp;
 interface OfflineCaptureProps {
   onCapture: (image: string) =&gt; void;
   onCancel: () =&gt; void;
 }
 &nbsp;
-const OfflineCapture: React.FC&lt;OfflineCaptureProps&gt; = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >({</span></span>
+const OfflineCapture: React.FC&lt;OfflineCaptureProps&gt; = <span class="fstat-no" title="function not covered" >({</span>
   onCapture,
   onCancel,
 }) =&gt; {
@@ -686,21 +686,21 @@ const OfflineCapture: React.FC&lt;OfflineCaptureProps&gt; = <span class="cstat-n
   const [error, setError] = <span class="cstat-no" title="statement not covered" >useState&lt;string | null&gt;(null);</span>
   const fileInputRef = <span class="cstat-no" title="statement not covered" >React.useRef&lt;HTMLInputElement&gt;(null);</span>
 &nbsp;
-  const handleCameraCapture = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
+  const handleCameraCapture = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    setCaptureMethod("camera");</span>
 <span class="cstat-no" title="statement not covered" >    setIsCapturing(true);</span>
   };
 &nbsp;
-  const handleFileUpload = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
+  const handleFileUpload = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    setCaptureMethod("upload");</span>
-<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (fileInputRef.current) {</span>
+<span class="cstat-no" title="statement not covered" >    if (fileInputRef.current) {</span>
 <span class="cstat-no" title="statement not covered" >      fileInputRef.current.click();</span>
     }
   };
 &nbsp;
   const handleFileChange = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(e</span>vent: React.ChangeEvent&lt;HTMLInputElement&gt;) =&gt; {</span>
     const file = <span class="cstat-no" title="statement not covered" >event.target.files?.[0];</span>
-<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (!file) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >    if (!file) <span class="cstat-no" title="statement not covered" >return;</span></span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    setIsCapturing(true);</span>
 <span class="cstat-no" title="statement not covered" >    setError(null);</span>
@@ -711,18 +711,18 @@ const OfflineCapture: React.FC&lt;OfflineCaptureProps&gt; = <span class="cstat-n
 <span class="cstat-no" title="statement not covered" >      setCapturedImage(imageData);</span>
 <span class="cstat-no" title="statement not covered" >      setIsCapturing(false);</span>
     };
-<span class="cstat-no" title="statement not covered" >    reader.onerror = <span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    reader.onerror = <span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      setError("Failed to read the image file");</span>
 <span class="cstat-no" title="statement not covered" >      setIsCapturing(false);</span>
     };
 <span class="cstat-no" title="statement not covered" >    reader.readAsDataURL(file);</span>
   };
 &nbsp;
-  const takePicture = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
+  const takePicture = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
     // In a real implementation, this would use the camera API
     // For this example, we'll simulate a camera capture
 <span class="cstat-no" title="statement not covered" >    setIsCapturing(true);</span>
-<span class="cstat-no" title="statement not covered" >    setTimeout(<span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    setTimeout(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
       // Simulate a captured image (base64 placeholder)
       const placeholderImage =
 <span class="cstat-no" title="statement not covered" >        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==";</span>
@@ -731,14 +731,14 @@ const OfflineCapture: React.FC&lt;OfflineCaptureProps&gt; = <span class="cstat-n
     }, 1500);
   };
 &nbsp;
-  const handleSaveOffline = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async </span>() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (!capturedImage) <span class="cstat-no" title="statement not covered" >return;</span></span>
+  const handleSaveOffline = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >as</span>ync () =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    if (!capturedImage) <span class="cstat-no" title="statement not covered" >return;</span></span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    setIsSaving(true);</span>
 <span class="cstat-no" title="statement not covered" >    setError(null);</span>
 &nbsp;
     // Validate image data before saving
-<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (!validateImageData(capturedImage)) {</span>
+<span class="cstat-no" title="statement not covered" >    if (!validateImageData(capturedImage)) {</span>
 <span class="cstat-no" title="statement not covered" >      setError("Invalid image data. Please capture the receipt again.");</span>
 <span class="cstat-no" title="statement not covered" >      setIsSaving(false);</span>
 <span class="cstat-no" title="statement not covered" >      return;</span>
@@ -777,7 +777,7 @@ const OfflineCapture: React.FC&lt;OfflineCaptureProps&gt; = <span class="cstat-n
   };
 &nbsp;
   // Get basic device info for troubleshooting
-  const getDeviceInfo = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(): Record&lt;string, any&gt; =</span>&gt; {</span>
+  const getDeviceInfo = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span>: Record&lt;string, any&gt; =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    return {</span>
       userAgent: navigator.userAgent,
       platform: navigator.platform,
@@ -788,16 +788,16 @@ const OfflineCapture: React.FC&lt;OfflineCaptureProps&gt; = <span class="cstat-n
   };
 &nbsp;
   // Process and optimize image for storage
-  const processImageForStorage = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async </span>(imageData: string): Promise&lt;string&gt; =&gt; {</span>
+  const processImageForStorage = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >as</span>ync (imageData: string): Promise&lt;string&gt; =&gt; {</span>
     // For large images, we might want to compress them
-<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (imageData.length &gt; 1000000) {</span>
+<span class="cstat-no" title="statement not covered" >    if (imageData.length &gt; 1000000) {</span>
       // If larger than ~1MB
 <span class="cstat-no" title="statement not covered" >      try {</span>
         // Create an image element to draw to canvas for compression
         const img = <span class="cstat-no" title="statement not covered" >new Image();</span>
         const loadPromise = <span class="cstat-no" title="statement not covered" >new Promise&lt;void&gt;(<span class="fstat-no" title="function not covered" >(r</span>esolve, reject) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >          img.onload = <span class="fstat-no" title="function not covered" >() =</span>&gt; <span class="cstat-no" title="statement not covered" >resolve();</span></span>
-<span class="cstat-no" title="statement not covered" >          img.onerror = <span class="fstat-no" title="function not covered" >() =</span>&gt;</span>
+<span class="cstat-no" title="statement not covered" >          img.onload = <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >resolve();</span></span>
+<span class="cstat-no" title="statement not covered" >          img.onerror = <span class="fstat-no" title="function not covered" >()</span> =&gt;</span>
 <span class="cstat-no" title="statement not covered" >            reject(new Error("Failed to load image for compression"));</span>
         });
 <span class="cstat-no" title="statement not covered" >        img.src = imageData;</span>
@@ -806,14 +806,14 @@ const OfflineCapture: React.FC&lt;OfflineCaptureProps&gt; = <span class="cstat-n
         // Create canvas for compression
         const canvas = <span class="cstat-no" title="statement not covered" >document.createElement("canvas");</span>
         const ctx = <span class="cstat-no" title="statement not covered" >canvas.getContext("2d");</span>
-<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if (!ctx) <span class="cstat-no" title="statement not covered" >throw new Error("Could not get canvas context");</span></span>
+<span class="cstat-no" title="statement not covered" >        if (!ctx) <span class="cstat-no" title="statement not covered" >throw new Error("Could not get canvas context");</span></span>
 &nbsp;
         // Set dimensions (optionally scale down very large images)
         const maxDimension = <span class="cstat-no" title="statement not covered" >1200;</span> // Max width or height
         let width = <span class="cstat-no" title="statement not covered" >img.width;</span>
         let height = <span class="cstat-no" title="statement not covered" >img.height;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if (width &gt; maxDimension || height &gt; maxDimension) {</span>
+<span class="cstat-no" title="statement not covered" >        if (width &gt; maxDimension || height &gt; maxDimension) {</span>
 <span class="cstat-no" title="statement not covered" >          if (width &gt; height) {</span>
 <span class="cstat-no" title="statement not covered" >            height = Math.round(height * (maxDimension / width));</span>
 <span class="cstat-no" title="statement not covered" >            width = maxDimension;</span>
@@ -838,7 +838,7 @@ const OfflineCapture: React.FC&lt;OfflineCaptureProps&gt; = <span class="cstat-n
 <span class="cstat-no" title="statement not covered" >    return imageData; </span>// Return original for smaller images
   };
 &nbsp;
-  const handleRetry = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
+  const handleRetry = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    setCapturedImage(null);</span>
 <span class="cstat-no" title="statement not covered" >    setCaptureMethod(null);</span>
 <span class="cstat-no" title="statement not covered" >    setError(null);</span>
@@ -956,7 +956,7 @@ const OfflineCapture: React.FC&lt;OfflineCaptureProps&gt; = <span class="cstat-n
   );
 };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >export default OfflineCapture;</span>
+export default OfflineCapture;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -964,7 +964,7 @@ const OfflineCapture: React.FC&lt;OfflineCaptureProps&gt; = <span class="cstat-n
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-02-12T16:54:46.052Z
+                at 2026-02-12T19:39:03.152Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

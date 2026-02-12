@@ -25,14 +25,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/73</span>
+                <span class='fraction'>0/68</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/47</span>
+                <span class='fraction'>0/63</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/69</span>
+                <span class='fraction'>0/68</span>
             </div>
         
             
@@ -275,7 +275,7 @@
 <a name='L210'></a><a href='#L210'>210</a>
 <a name='L211'></a><a href='#L211'>211</a>
 <a name='L212'></a><a href='#L212'>212</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -486,7 +486,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { ProcessedReceipt } from "./receipt-processing";
-<span class="cstat-no" title="statement not covered" >import { logger } from "./logger";</span>
+import { logger } from "./logger";
 &nbsp;
 interface ReceiptFingerprint {
   store: string;
@@ -499,7 +499,7 @@ interface ReceiptFingerprint {
 /**
  * Creates a unique fingerprint for a receipt to detect duplicates
  */
-export const <span class="cstat-no" title="statement not covered" >createReceiptFingerprint = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span></span></span>
+export const createReceiptFingerprint = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span></span>
   receipt: ProcessedReceipt,
 ): ReceiptFingerprint =&gt; {
   // Create a hash of items if available
@@ -526,7 +526,7 @@ export const <span class="cstat-no" title="statement not covered" >createReceipt
  * Compares two receipts to determine if they are likely duplicates
  * Returns a score between 0 and 1, where 1 means definitely duplicate
  */
-export const <span class="cstat-no" title="statement not covered" >compareReceipts = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span></span></span>
+export const compareReceipts = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span></span>
   receipt1: ProcessedReceipt,
   receipt2: ProcessedReceipt,
 ): number =&gt; {
@@ -538,14 +538,14 @@ export const <span class="cstat-no" title="statement not covered" >compareReceip
   // Check total amount (most important factor)
 <span class="cstat-no" title="statement not covered" >  if (Math.abs(fp1.total - fp2.total) &lt; 0.01) {</span>
 <span class="cstat-no" title="statement not covered" >    score += 0.5; </span>// Exact match on total is highly suspicious
-  } else <span class="cstat-no" title="statement not covered" ><span class="missing-if-branch" title="if path not taken" >I</span>if (Math.abs(fp1.total - fp2.total) &lt; 1.0) {</span>
+  } else <span class="cstat-no" title="statement not covered" >if (Math.abs(fp1.total - fp2.total) &lt; 1.0) {</span>
 <span class="cstat-no" title="statement not covered" >    score += 0.3; </span>// Very close totals
   }
 &nbsp;
   // Check store name
 <span class="cstat-no" title="statement not covered" >  if (fp1.store === fp2.store) {</span>
 <span class="cstat-no" title="statement not covered" >    score += 0.2;</span>
-  } else <span class="cstat-no" title="statement not covered" ><span class="missing-if-branch" title="if path not taken" >I</span>if (fp1.store.includes(fp2.store) || fp2.store.includes(fp1.store)) {</span>
+  } else <span class="cstat-no" title="statement not covered" >if (fp1.store.includes(fp2.store) || fp2.store.includes(fp1.store)) {</span>
 <span class="cstat-no" title="statement not covered" >    score += 0.1; </span>// Partial store name match
   }
 &nbsp;
@@ -553,8 +553,8 @@ export const <span class="cstat-no" title="statement not covered" >compareReceip
 <span class="cstat-no" title="statement not covered" >  try {</span>
     const date1 = <span class="cstat-no" title="statement not covered" >new Date(fp1.date);</span>
     const date2 = <span class="cstat-no" title="statement not covered" >new Date(fp2.date);</span>
-<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (!isNaN(date1.getTime()) &amp;&amp; !isNaN(date2.getTime())) {</span>
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (date1.toDateString() === date2.toDateString()) {</span>
+<span class="cstat-no" title="statement not covered" >    if (!isNaN(date1.getTime()) &amp;&amp; !isNaN(date2.getTime())) {</span>
+<span class="cstat-no" title="statement not covered" >      if (date1.toDateString() === date2.toDateString()) {</span>
 <span class="cstat-no" title="statement not covered" >        score += 0.2;</span>
       }
     }
@@ -565,12 +565,12 @@ export const <span class="cstat-no" title="statement not covered" >compareReceip
   // Check items if available
 <span class="cstat-no" title="statement not covered" >  if (fp1.itemsHash &amp;&amp; fp2.itemsHash &amp;&amp; fp1.itemsHash === fp2.itemsHash) {</span>
 <span class="cstat-no" title="statement not covered" >    score += 0.3; </span>// Exact match on all items
-  } else <span class="cstat-no" title="statement not covered" ><span class="missing-if-branch" title="if path not taken" >I</span>if (fp1.itemCount &gt; 0 &amp;&amp; fp2.itemCount &gt; 0) {</span>
+  } else <span class="cstat-no" title="statement not covered" >if (fp1.itemCount &gt; 0 &amp;&amp; fp2.itemCount &gt; 0) {</span>
     // If item counts are similar, add some score
     const countDiff = <span class="cstat-no" title="statement not covered" >Math.abs(fp1.itemCount - fp2.itemCount);</span>
 <span class="cstat-no" title="statement not covered" >    if (countDiff === 0) {</span>
 <span class="cstat-no" title="statement not covered" >      score += 0.1;</span>
-    } else <span class="cstat-no" title="statement not covered" ><span class="missing-if-branch" title="if path not taken" >I</span>if (countDiff &lt;= 2) {</span>
+    } else <span class="cstat-no" title="statement not covered" >if (countDiff &lt;= 2) {</span>
 <span class="cstat-no" title="statement not covered" >      score += 0.05;</span>
     }
   }
@@ -583,7 +583,7 @@ export const <span class="cstat-no" title="statement not covered" >compareReceip
  * Checks if a receipt is likely a duplicate of any in the provided history
  * Returns the duplicate score and the matching receipt if found
  */
-export const <span class="cstat-no" title="statement not covered" >checkForDuplicates = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span></span></span>
+export const checkForDuplicates = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span></span>
   newReceipt: ProcessedReceipt,
   receiptHistory: ProcessedReceipt[],
 ): {
@@ -591,7 +591,7 @@ export const <span class="cstat-no" title="statement not covered" >checkForDupli
   score: number;
   matchingReceipt?: ProcessedReceipt;
 } =&gt; {
-<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if (!receiptHistory || receiptHistory.length === 0) {</span>
+<span class="cstat-no" title="statement not covered" >  if (!receiptHistory || receiptHistory.length === 0) {</span>
 <span class="cstat-no" title="statement not covered" >    return { isDuplicate: false, score: 0 };</span>
   }
 &nbsp;
@@ -600,7 +600,7 @@ export const <span class="cstat-no" title="statement not covered" >checkForDupli
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  for (const historicalReceipt of receiptHistory) {</span>
     const score = <span class="cstat-no" title="statement not covered" >compareReceipts(newReceipt, historicalReceipt);</span>
-<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (score &gt; highestScore) {</span>
+<span class="cstat-no" title="statement not covered" >    if (score &gt; highestScore) {</span>
 <span class="cstat-no" title="statement not covered" >      highestScore = score;</span>
 <span class="cstat-no" title="statement not covered" >      matchingReceipt = historicalReceipt;</span>
     }
@@ -609,7 +609,7 @@ export const <span class="cstat-no" title="statement not covered" >checkForDupli
   // Consider it a duplicate if score is above threshold
   const isDuplicate = <span class="cstat-no" title="statement not covered" >highestScore &gt;= 0.7;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if (isDuplicate) {</span>
+<span class="cstat-no" title="statement not covered" >  if (isDuplicate) {</span>
 <span class="cstat-no" title="statement not covered" >    logger.warn("Potential duplicate receipt detected", {</span>
       score: highestScore,
       newReceipt,
@@ -627,7 +627,7 @@ export const <span class="cstat-no" title="statement not covered" >checkForDupli
 /**
  * Advanced data extraction from receipt text using pattern matching
  */
-export const <span class="cstat-no" title="statement not covered" >extractAdvancedData = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span></span></span>
+export const extractAdvancedData = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span></span>
   receiptText: string,
 ): Record&lt;string, any&gt; =&gt; {
   const data: Record&lt;string, any&gt; = <span class="cstat-no" title="statement not covered" >{};</span>
@@ -637,7 +637,7 @@ export const <span class="cstat-no" title="statement not covered" >extractAdvanc
 <span class="cstat-no" title="statement not covered" >    receiptText.match(</span>
       /(?:receipt|order|transaction)(?:\s+(?:id|no|number|#)):?\s*([\w\d-]+)/i,
     ) || receiptText.match(/(?:receipt|order|transaction)[^\w\d]*(\d{5,})/i);
-<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if (receiptIdMatch) {</span>
+<span class="cstat-no" title="statement not covered" >  if (receiptIdMatch) {</span>
 <span class="cstat-no" title="statement not covered" >    data.receiptId = receiptIdMatch[1];</span>
   }
 &nbsp;
@@ -645,7 +645,7 @@ export const <span class="cstat-no" title="statement not covered" >extractAdvanc
   const cashierMatch = <span class="cstat-no" title="statement not covered" >receiptText.match(</span>
     /(?:cashier|associate|served by|operator):?\s*([\w\s]+)/i,
   );
-<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if (cashierMatch) {</span>
+<span class="cstat-no" title="statement not covered" >  if (cashierMatch) {</span>
 <span class="cstat-no" title="statement not covered" >    data.cashier = cashierMatch[1].trim();</span>
   }
 &nbsp;
@@ -655,7 +655,7 @@ export const <span class="cstat-no" title="statement not covered" >extractAdvanc
       /(?:paid by|payment method|payment type|tender):?\s*([\w\s]+)/i,
     ) ||
     receiptText.match(/(?:visa|mastercard|amex|cash|credit|debit|card|check)/i);
-<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if (paymentMethodMatch) {</span>
+<span class="cstat-no" title="statement not covered" >  if (paymentMethodMatch) {</span>
 <span class="cstat-no" title="statement not covered" >    data.paymentMethod = paymentMethodMatch[1]</span>
       ? paymentMethodMatch[1].trim()
       : paymentMethodMatch[0];
@@ -665,7 +665,7 @@ export const <span class="cstat-no" title="statement not covered" >extractAdvanc
   const taxMatch = <span class="cstat-no" title="statement not covered" >receiptText.match(</span>
     /(?:tax|vat|gst)\s*(?:\(\d+%\))?:?\s*\$?(\d+\.\d{2})/i,
   );
-<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if (taxMatch) {</span>
+<span class="cstat-no" title="statement not covered" >  if (taxMatch) {</span>
 <span class="cstat-no" title="statement not covered" >    data.tax = parseFloat(taxMatch[1]);</span>
   }
 &nbsp;
@@ -673,7 +673,7 @@ export const <span class="cstat-no" title="statement not covered" >extractAdvanc
   const subtotalMatch = <span class="cstat-no" title="statement not covered" >receiptText.match(</span>
     /(?:subtotal|sub-total|sub total):?\s*\$?(\d+\.\d{2})/i,
   );
-<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if (subtotalMatch) {</span>
+<span class="cstat-no" title="statement not covered" >  if (subtotalMatch) {</span>
 <span class="cstat-no" title="statement not covered" >    data.subtotal = parseFloat(subtotalMatch[1]);</span>
   }
 &nbsp;
@@ -681,7 +681,7 @@ export const <span class="cstat-no" title="statement not covered" >extractAdvanc
   const discountMatch = <span class="cstat-no" title="statement not covered" >receiptText.match(</span>
     /(?:discount|savings|coupon)\s*(?:\(\d+%\))?:?\s*\$?(\d+\.\d{2})/i,
   );
-<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if (discountMatch) {</span>
+<span class="cstat-no" title="statement not covered" >  if (discountMatch) {</span>
 <span class="cstat-no" title="statement not covered" >    data.discount = parseFloat(discountMatch[1]);</span>
   }
 &nbsp;
@@ -690,7 +690,7 @@ export const <span class="cstat-no" title="statement not covered" >extractAdvanc
 <span class="cstat-no" title="statement not covered" >    receiptText.match(</span>
       /(?:loyalty|rewards|points|club card)\s*(?:number|#|id)?:?\s*([\w\d]+)/i,
     ) || receiptText.match(/(?:earned|received)\s*(\d+)\s*(?:points|rewards)/i);
-<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if (loyaltyMatch) {</span>
+<span class="cstat-no" title="statement not covered" >  if (loyaltyMatch) {</span>
 <span class="cstat-no" title="statement not covered" >    data.loyalty = loyaltyMatch[1].trim();</span>
   }
 &nbsp;
@@ -703,7 +703,7 @@ export const <span class="cstat-no" title="statement not covered" >extractAdvanc
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-02-12T16:54:46.052Z
+                at 2026-02-12T19:39:03.152Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

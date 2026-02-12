@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/15</span>
+                <span class='fraction'>0/11</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/15</span>
+                <span class='fraction'>0/11</span>
             </div>
         
             
@@ -116,17 +116,17 @@
 <a name='L51'></a><a href='#L51'>51</a>
 <a name='L52'></a><a href='#L52'>52</a>
 <a name='L53'></a><a href='#L53'>53</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -168,9 +168,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// [build] library: 'shadcn'
-<span class="cstat-no" title="statement not covered" >import { Button } from "../components/ui/button";</span>
-<span class="cstat-no" title="statement not covered" >import { Input } from "../components/ui/input";</span>
-<span class="cstat-no" title="statement not covered" >import { Label } from "../components/ui/label";</span>
+import { Button } from "../components/ui/button";
+import { Input } from "../components/ui/input";
+import { Label } from "../components/ui/label";
 &nbsp;
 const meta = <span class="cstat-no" title="statement not covered" >{</span>
   title: "ui/Input",
@@ -178,20 +178,20 @@ const meta = <span class="cstat-no" title="statement not covered" >{</span>
   tags: ["autodocs"],
   argTypes: {},
 };
-<span class="cstat-no" title="statement not covered" >export default meta;</span>
+export default meta;
 &nbsp;
-export const <span class="cstat-no" title="statement not covered" >Default = {</span>
+export const Default = <span class="cstat-no" title="statement not covered" >{</span>
   render: <span class="fstat-no" title="function not covered" >(a</span>rgs: any) =&gt; <span class="cstat-no" title="statement not covered" >&lt;Input {...args} /&gt;,</span>
   args: {
     type: "email",
     placeholder: "Email",
   },
 };
-export const <span class="cstat-no" title="statement not covered" >Disabled = {</span>
+export const Disabled = <span class="cstat-no" title="statement not covered" >{</span>
   render: <span class="fstat-no" title="function not covered" >(a</span>rgs: any) =&gt; <span class="cstat-no" title="statement not covered" >&lt;Input disabled {...args} /&gt;,</span>
   args: { ...Default.args },
 };
-export const <span class="cstat-no" title="statement not covered" >WithLabel = {</span>
+export const WithLabel = <span class="cstat-no" title="statement not covered" >{</span>
   render: <span class="fstat-no" title="function not covered" >(a</span>rgs: any) =&gt; (
 <span class="cstat-no" title="statement not covered" >    &lt;div className="grid w-full max-w-sm items-center gap-1.5"&gt;</span>
       &lt;Label htmlFor="email"&gt;{args.placeholder}&lt;/Label&gt;
@@ -200,7 +200,7 @@ export const <span class="cstat-no" title="statement not covered" >WithLabel = {
   ),
   args: { ...Default.args },
 };
-export const <span class="cstat-no" title="statement not covered" >WithText = {</span>
+export const WithText = <span class="cstat-no" title="statement not covered" >{</span>
   render: <span class="fstat-no" title="function not covered" >(a</span>rgs: any) =&gt; (
 <span class="cstat-no" title="statement not covered" >    &lt;div className="grid w-full max-w-sm items-center gap-1.5"&gt;</span>
       &lt;Label htmlFor="email-2"&gt;{args.placeholder}&lt;/Label&gt;
@@ -210,7 +210,7 @@ export const <span class="cstat-no" title="statement not covered" >WithText = {<
   ),
   args: { ...Default.args },
 };
-export const <span class="cstat-no" title="statement not covered" >WithButton = {</span>
+export const WithButton = <span class="cstat-no" title="statement not covered" >{</span>
   render: <span class="fstat-no" title="function not covered" >(a</span>rgs: any) =&gt; (
 <span class="cstat-no" title="statement not covered" >    &lt;div className="flex w-full max-w-sm items-center space-x-2"&gt;</span>
       &lt;Input {...args} /&gt;
@@ -226,7 +226,7 @@ export const <span class="cstat-no" title="statement not covered" >WithButton = 
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-02-12T16:54:46.052Z
+                at 2026-02-12T19:39:03.152Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

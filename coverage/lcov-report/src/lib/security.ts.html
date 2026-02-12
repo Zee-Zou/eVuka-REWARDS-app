@@ -25,28 +25,28 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/96</span>
+                <span class='fraction'>0/82</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/18</span>
+                <span class='fraction'>0/27</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/30</span>
+                <span class='fraction'>0/24</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/86</span>
+                <span class='fraction'>0/78</span>
             </div>
         
             
@@ -358,7 +358,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -557,13 +557,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -648,7 +648,7 @@
  * Provides security-related functionality including initialization
  */
 &nbsp;
-<span class="cstat-no" title="statement not covered" >import DOMPurify from 'dompurify';</span>
+import DOMPurify from 'dompurify';
 &nbsp;
 /**
  * Initializes security measures for the application
@@ -657,9 +657,9 @@
  * - Sets up CSRF protection
  * - Initializes other security features
  */
-export const <span class="cstat-no" title="statement not covered" >initSecurity = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span>) =</span>&gt; {</span>
+export const initSecurity = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
   // Set security headers if in browser environment
-<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if (typeof window !== "undefined") {</span>
+<span class="cstat-no" title="statement not covered" >  if (typeof window !== "undefined") {</span>
     // Prevent clickjacking
 <span class="cstat-no" title="statement not covered" >    enforceFrameOptions();</span>
 &nbsp;
@@ -677,12 +677,12 @@ export const <span class="cstat-no" title="statement not covered" >initSecurity 
 /**
  * Prevents the application from being embedded in iframes (clickjacking protection)
  */
-const enforceFrameOptions = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
+const enforceFrameOptions = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
   // Only apply in production to allow for development tools
-<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if (import.meta.env.PROD) {</span>
+<span class="cstat-no" title="statement not covered" >  if (import.meta.env.PROD) {</span>
 <span class="cstat-no" title="statement not covered" >    try {</span>
       // Attempt to ensure the page can't be framed (clickjacking protection)
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (window.self !== window.top) {</span>
+<span class="cstat-no" title="statement not covered" >      if (window.self !== window.top) {</span>
         // If we're in a frame, attempt to break out
 <span class="cstat-no" title="statement not covered" >        window.top.location = window.self.location;</span>
       }
@@ -696,20 +696,20 @@ const enforceFrameOptions = <span class="cstat-no" title="statement not covered"
 /**
  * Enables XSS protection measures
  */
-const enableXssProtection = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
+const enableXssProtection = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
   // Client-side XSS protection
   // This is a defense-in-depth measure as modern browsers
   // have built-in XSS protection
 &nbsp;
   // Sanitize any dynamic content before insertion
-<span class="cstat-no" title="statement not covered" >  window.addEventListener("DOMContentLoaded", <span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  window.addEventListener("DOMContentLoaded", <span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
     // Set up mutation observer to sanitize dynamically added content
     const observer = <span class="cstat-no" title="statement not covered" >new MutationObserver(<span class="fstat-no" title="function not covered" >(m</span>utations) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      mutations.forEach(<span class="fstat-no" title="function not covered" >(m</span>utation) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if (mutation.type === "childList") {</span>
+<span class="cstat-no" title="statement not covered" >        if (mutation.type === "childList") {</span>
 <span class="cstat-no" title="statement not covered" >          mutation.addedNodes.forEach(<span class="fstat-no" title="function not covered" >(n</span>ode) =&gt; {</span>
             // Only process element nodes
-<span class="cstat-no" title="statement not covered" >            <span class="missing-if-branch" title="if path not taken" >I</span>if (node.nodeType === 1) {</span>
+<span class="cstat-no" title="statement not covered" >            if (node.nodeType === 1) {</span>
 <span class="cstat-no" title="statement not covered" >              sanitizeElement(node as Element);</span>
             }
           });
@@ -733,14 +733,14 @@ const sanitizeElement = <span class="cstat-no" title="statement not covered" ><s
   // Remove potentially dangerous attributes
   const dangerousAttrs = <span class="cstat-no" title="statement not covered" >["onerror", "onload", "onclick", "onmouseover"];</span>
 <span class="cstat-no" title="statement not covered" >  dangerousAttrs.forEach(<span class="fstat-no" title="function not covered" >(a</span>ttr) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (element.hasAttribute(attr)) {</span>
+<span class="cstat-no" title="statement not covered" >    if (element.hasAttribute(attr)) {</span>
 <span class="cstat-no" title="statement not covered" >      element.removeAttribute(attr);</span>
     }
   });
 &nbsp;
   // Recursively sanitize child elements
 <span class="cstat-no" title="statement not covered" >  element.childNodes.forEach(<span class="fstat-no" title="function not covered" >(c</span>hild) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (child.nodeType === 1) {</span>
+<span class="cstat-no" title="statement not covered" >    if (child.nodeType === 1) {</span>
 <span class="cstat-no" title="statement not covered" >      sanitizeElement(child as Element);</span>
     }
   });
@@ -749,14 +749,14 @@ const sanitizeElement = <span class="cstat-no" title="statement not covered" ><s
 /**
  * Sets up CSRF protection for the application
  */
-const setupCsrfProtection = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
+const setupCsrfProtection = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
   // For SPA applications, CSRF protection is typically handled by:
   // 1. Using HttpOnly cookies for session management
   // 2. Using custom headers for API requests that browsers won't send in cross-site requests
 &nbsp;
   // Add a custom header to all fetch/XHR requests
   const originalFetch = <span class="cstat-no" title="statement not covered" >window.fetch;</span>
-<span class="cstat-no" title="statement not covered" >  window.fetch = <span class="fstat-no" title="function not covered" >function (i</span>nput, init) {</span>
+<span class="cstat-no" title="statement not covered" >  window.fetch = <span class="fstat-no" title="function not covered" >fu</span>nction (input, init) {</span>
 <span class="cstat-no" title="statement not covered" >    init = init || {};</span>
 <span class="cstat-no" title="statement not covered" >    init.headers = init.headers || {};</span>
 &nbsp;
@@ -770,7 +770,7 @@ const setupCsrfProtection = <span class="cstat-no" title="statement not covered"
 &nbsp;
   // Also patch XMLHttpRequest for older code
   const originalOpen = <span class="cstat-no" title="statement not covered" >XMLHttpRequest.prototype.open;</span>
-<span class="cstat-no" title="statement not covered" >  XMLHttpRequest.prototype.open = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >  XMLHttpRequest.prototype.open = <span class="fstat-no" title="function not covered" >fu</span>nction () {</span>
     const result = <span class="cstat-no" title="statement not covered" >originalOpen.apply(this, arguments);</span>
 <span class="cstat-no" title="statement not covered" >    this.setRequestHeader("X-Requested-With", "XMLHttpRequest");</span>
 <span class="cstat-no" title="statement not covered" >    return result;</span>
@@ -780,14 +780,14 @@ const setupCsrfProtection = <span class="cstat-no" title="statement not covered"
 /**
  * Monitors for suspicious activity that might indicate security issues
  */
-const monitorSuspiciousActivity = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
+const monitorSuspiciousActivity = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
   // Monitor for excessive failed login attempts
   let loginAttempts = <span class="cstat-no" title="statement not covered" >0;</span>
   const loginAttemptThreshold = <span class="cstat-no" title="statement not covered" >5;</span>
   const loginAttemptWindow = <span class="cstat-no" title="statement not covered" >5 * 60 * 1000;</span> // 5 minutes
 &nbsp;
   // Reset login attempts periodically
-<span class="cstat-no" title="statement not covered" >  setInterval(<span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  setInterval(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    loginAttempts = 0;</span>
   }, loginAttemptWindow);
 &nbsp;
@@ -796,7 +796,7 @@ const monitorSuspiciousActivity = <span class="cstat-no" title="statement not co
 <span class="cstat-no" title="statement not covered" >    if (!success) {</span>
 <span class="cstat-no" title="statement not covered" >      loginAttempts++;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (loginAttempts &gt;= loginAttemptThreshold) {</span>
+<span class="cstat-no" title="statement not covered" >      if (loginAttempts &gt;= loginAttemptThreshold) {</span>
 <span class="cstat-no" title="statement not covered" >        console.warn("Excessive login attempts detected");</span>
         // In a real app, you might implement temporary IP blocking or CAPTCHA
       }
@@ -822,7 +822,7 @@ declare global {
  * @param input The user input to validate
  * @returns True if the input is safe, false otherwise
  */
-export const <span class="cstat-no" title="statement not covered" >validateUserInput = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span>i</span>nput: string): boolean =&gt; {</span>
+export const validateUserInput = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(i</span>nput: string): boolean =&gt; {</span>
   // Check for common injection patterns
   const dangerousPatterns = <span class="cstat-no" title="statement not covered" >[</span>
     /(&lt;script[^&gt;]*&gt;|&lt;\/script&gt;)/i, // Script tags
@@ -847,13 +847,13 @@ export const <span class="cstat-no" title="statement not covered" >validateUserI
  * - await encryptData(data)
  * - await decryptData(encrypted)
  */
-<span class="cstat-no" title="statement not covered" >export {</span>
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  encryptForStorage </span>as encryptData,</span>
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  decryptFromStorage </span>as decryptData,</span>
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  encryptData </span>as encryptDataAsync,</span>
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  decryptData </span>as decryptDataAsync,</span>
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  clearEncryptionSession,</span></span>
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  isEncryptionAvailable,</span></span>
+export {
+  encryptForStorage as encryptData,
+  decryptFromStorage as decryptData,
+  encryptData as encryptDataAsync,
+  decryptData as decryptDataAsync,
+  clearEncryptionSession,
+  isEncryptionAvailable,
 } from './crypto-secure';
 &nbsp;
 /**
@@ -863,7 +863,7 @@ export const <span class="cstat-no" title="statement not covered" >validateUserI
  * @param config Optional DOMPurify configuration
  * @returns Sanitized HTML content safe for rendering
  */
-export const <span class="cstat-no" title="statement not covered" >sanitizeHtml = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span></span></span>
+export const sanitizeHtml = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span></span>
   html: string,
   config?: DOMPurify.Config
 ): string =&gt; {
@@ -892,7 +892,7 @@ export const <span class="cstat-no" title="statement not covered" >sanitizeHtml 
  * @param length The length of the token to generate
  * @returns A secure random token
  */
-export const <span class="cstat-no" title="statement not covered" >generateSecureToken = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span>l</span>ength: number = <span class="branch-0 cbranch-no" title="branch not covered" >32)</span>: string =&gt; {</span>
+export const generateSecureToken = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(l</span>ength: number = <span class="branch-0 cbranch-no" title="branch not covered" >32)</span>: string =&gt; {</span>
   const array = <span class="cstat-no" title="statement not covered" >new Uint8Array(length);</span>
 <span class="cstat-no" title="statement not covered" >  crypto.getRandomValues(array);</span>
 <span class="cstat-no" title="statement not covered" >  return Array.from(array, <span class="fstat-no" title="function not covered" >(b</span>yte) =&gt; <span class="cstat-no" title="statement not covered" >byte.toString(16).padStart(2, "0"))</span>.join(</span>
@@ -905,7 +905,7 @@ export const <span class="cstat-no" title="statement not covered" >generateSecur
  * @param data The data to hash
  * @returns A promise that resolves to the hashed data
  */
-export const <span class="cstat-no" title="statement not covered" >hashData = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >a</span>sync </span>(data: string): Promise&lt;string&gt; =&gt; {</span>
+export const hashData = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >as</span>ync (data: string): Promise&lt;string&gt; =&gt; {</span>
   // In a real application, use a proper password hashing algorithm like bcrypt
   // This is a simplified example using SHA-256
   const encoder = <span class="cstat-no" title="statement not covered" >new TextEncoder();</span>
@@ -921,9 +921,9 @@ export const <span class="cstat-no" title="statement not covered" >hashData = <s
  * @param expectedToken The expected token value
  * @returns True if the token is valid, false otherwise
  */
-export const <span class="cstat-no" title="statement not covered" >verifyToken = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span>t</span>oken: string, expectedToken: string): boolean =&gt; {</span>
+export const verifyToken = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(t</span>oken: string, expectedToken: string): boolean =&gt; {</span>
   // Use constant-time comparison to prevent timing attacks
-<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if (token.length !== expectedToken.length) {</span>
+<span class="cstat-no" title="statement not covered" >  if (token.length !== expectedToken.length) {</span>
 <span class="cstat-no" title="statement not covered" >    return false;</span>
   }
 &nbsp;
@@ -940,7 +940,7 @@ export const <span class="cstat-no" title="statement not covered" >verifyToken =
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-02-12T16:54:46.052Z
+                at 2026-02-12T19:39:03.152Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

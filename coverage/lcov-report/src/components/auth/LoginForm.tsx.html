@@ -25,14 +25,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/76</span>
+                <span class='fraction'>0/62</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/25</span>
+                <span class='fraction'>0/30</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/74</span>
+                <span class='fraction'>0/61</span>
             </div>
         
             
@@ -273,18 +273,18 @@
 <a name='L208'></a><a href='#L208'>208</a>
 <a name='L209'></a><a href='#L209'>209</a>
 <a name='L210'></a><a href='#L210'>210</a>
-<a name='L211'></a><a href='#L211'>211</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<a name='L211'></a><a href='#L211'>211</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -483,20 +483,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import React, { useState, useEffect } from "react";</span>
-<span class="cstat-no" title="statement not covered" >import { useAuth } from "@/providers/AuthProvider";</span>
-<span class="cstat-no" title="statement not covered" >import { Button } from "@/components/ui/button";</span>
-<span class="cstat-no" title="statement not covered" >import { Input } from "@/components/ui/input";</span>
-<span class="cstat-no" title="statement not covered" >import { Card } from "@/components/ui/card";</span>
-<span class="cstat-no" title="statement not covered" >import { LoadingSpinner } from "../ui/loading-spinner";</span>
-<span class="cstat-no" title="statement not covered" >import { Mail, Lock, AlertCircle, Shield, Info } from "lucide-react";</span>
-<span class="cstat-no" title="statement not covered" >import { useNavigate, useLocation } from "react-router-dom";</span>
-<span class="cstat-no" title="statement not covered" >import { Alert, AlertDescription } from "../ui/alert";</span>
-<span class="cstat-no" title="statement not covered" >import { OAuthButtons } from "./OAuthButtons";</span>
-<span class="cstat-no" title="statement not covered" >import { MFAForm } from "./MFAForm";</span>
-<span class="cstat-no" title="statement not covered" >import { logger } from "@/lib/logger";</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useState, useEffect } from "react";
+import { useAuth } from "@/providers/AuthProvider";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Card } from "@/components/ui/card";
+import { LoadingSpinner } from "../ui/loading-spinner";
+import { Mail, Lock, AlertCircle, Shield, Info } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { Alert, AlertDescription } from "../ui/alert";
+import { OAuthButtons } from "./OAuthButtons";
+import { MFAForm } from "./MFAForm";
+import { logger } from "@/lib/logger";
 &nbsp;
-export const <span class="cstat-no" title="statement not covered" >LoginForm: React.FC = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span>) =</span>&gt; {</span>
+export const LoginForm: React.FC = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
   const { signIn, error: authError, clearError } = <span class="cstat-no" title="statement not covered" >useAuth();</span>
   const [email, setEmail] = <span class="cstat-no" title="statement not covered" >useState("");</span>
   const [password, setPassword] = <span class="cstat-no" title="statement not covered" >useState("");</span>
@@ -509,10 +509,10 @@ export const <span class="cstat-no" title="statement not covered" >LoginForm: Re
   const location = <span class="cstat-no" title="statement not covered" >useLocation();</span>
 &nbsp;
   // Check for redirect messages (e.g., after email verification)
-<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
     const params = <span class="cstat-no" title="statement not covered" >new URLSearchParams(location.search);</span>
     const message = <span class="cstat-no" title="statement not covered" >params.get("message");</span>
-<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (message) {</span>
+<span class="cstat-no" title="statement not covered" >    if (message) {</span>
 <span class="cstat-no" title="statement not covered" >      setSuccessMessage(decodeURIComponent(message));</span>
       // Clean up the URL
 <span class="cstat-no" title="statement not covered" >      navigate(location.pathname, { replace: true });</span>
@@ -520,19 +520,19 @@ export const <span class="cstat-no" title="statement not covered" >LoginForm: Re
   }, [location, navigate]);
 &nbsp;
   // Clear any auth context errors when component mounts or unmounts
-<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    clearError();</span>
-<span class="cstat-no" title="statement not covered" >    return <span class="fstat-no" title="function not covered" >() =</span>&gt; <span class="cstat-no" title="statement not covered" >clearError();</span></span>
+<span class="cstat-no" title="statement not covered" >    return <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >clearError();</span></span>
   }, [clearError]);
 &nbsp;
   // Set local error if auth context has an error
-<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (authError) {</span>
+<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    if (authError) {</span>
 <span class="cstat-no" title="statement not covered" >      setError(authError);</span>
     }
   }, [authError]);
 &nbsp;
-  const handleSubmit = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async </span>(e: React.FormEvent) =&gt; {</span>
+  const handleSubmit = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >as</span>ync (e: React.FormEvent) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    e.preventDefault();</span>
 <span class="cstat-no" title="statement not covered" >    setLoading(true);</span>
 <span class="cstat-no" title="statement not covered" >    setError(null);</span>
@@ -541,7 +541,7 @@ export const <span class="cstat-no" title="statement not covered" >LoginForm: Re
 <span class="cstat-no" title="statement not covered" >    logger.info("Login attempt", { email: email.toLowerCase() });</span>
 &nbsp;
     // Basic validation
-<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (!email.trim() || !password) {</span>
+<span class="cstat-no" title="statement not covered" >    if (!email.trim() || !password) {</span>
 <span class="cstat-no" title="statement not covered" >      setError("Please enter both email and password");</span>
 <span class="cstat-no" title="statement not covered" >      setLoading(false);</span>
 <span class="cstat-no" title="statement not covered" >      return;</span>
@@ -549,7 +549,7 @@ export const <span class="cstat-no" title="statement not covered" >LoginForm: Re
 &nbsp;
     // Email format validation
     const emailRegex = <span class="cstat-no" title="statement not covered" >/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;</span>
-<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (!emailRegex.test(email)) {</span>
+<span class="cstat-no" title="statement not covered" >    if (!emailRegex.test(email)) {</span>
 <span class="cstat-no" title="statement not covered" >      setError("Please enter a valid email address");</span>
 <span class="cstat-no" title="statement not covered" >      setLoading(false);</span>
 <span class="cstat-no" title="statement not covered" >      return;</span>
@@ -558,7 +558,7 @@ export const <span class="cstat-no" title="statement not covered" >LoginForm: Re
 <span class="cstat-no" title="statement not covered" >    try {</span>
       const result = <span class="cstat-no" title="statement not covered" >await signIn(email.trim().toLowerCase(), password);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (!result.success) {</span>
+<span class="cstat-no" title="statement not covered" >      if (!result.success) {</span>
 <span class="cstat-no" title="statement not covered" >        setError(result.error || "Failed to sign in");</span>
 <span class="cstat-no" title="statement not covered" >        logger.warn("Login failed", {</span>
           email: email.toLowerCase(),
@@ -596,7 +596,7 @@ export const <span class="cstat-no" title="statement not covered" >LoginForm: Re
         &lt;MFAForm
           mode="verify"
           userId={userId}
-          onSuccess={<span class="fstat-no" title="function not covered" >() =</span>&gt; <span class="cstat-no" title="statement not covered" >navigate("/")}</span>
+          onSuccess={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >navigate("/")}</span>
         /&gt;
       ) : (
         &lt;&gt;
@@ -652,7 +652,7 @@ export const <span class="cstat-no" title="statement not covered" >LoginForm: Re
             &lt;div className="flex justify-end"&gt;
               &lt;button
                 type="button"
-                onClick={<span class="fstat-no" title="function not covered" >() =</span>&gt; <span class="cstat-no" title="statement not covered" >navigate("/auth/password-reset")}</span>
+                onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >navigate("/auth/password-reset")}</span>
                 className="text-sm text-primary hover:underline"
                 disabled={loading}
               &gt;
@@ -679,7 +679,7 @@ export const <span class="cstat-no" title="statement not covered" >LoginForm: Re
               Don't have an account?{" "}
               &lt;button
                 type="button"
-                onClick={<span class="fstat-no" title="function not covered" >() =</span>&gt; <span class="cstat-no" title="statement not covered" >navigate("/auth/register")}</span>
+                onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >navigate("/auth/register")}</span>
                 className="text-primary hover:underline font-medium"
                 disabled={loading}
               &gt;
@@ -693,14 +693,14 @@ export const <span class="cstat-no" title="statement not covered" >LoginForm: Re
   );
 };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >export default LoginForm;</span></pre></td></tr></table></pre>
+export default LoginForm;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-02-12T16:54:46.052Z
+                at 2026-02-12T19:39:03.152Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

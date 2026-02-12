@@ -25,14 +25,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/80</span>
+                <span class='fraction'>0/68</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/33</span>
+                <span class='fraction'>0/43</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/77</span>
+                <span class='fraction'>0/66</span>
             </div>
         
             
@@ -279,17 +279,17 @@
 <a name='L214'></a><a href='#L214'>214</a>
 <a name='L215'></a><a href='#L215'>215</a>
 <a name='L216'></a><a href='#L216'>216</a>
-<a name='L217'></a><a href='#L217'>217</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<a name='L217'></a><a href='#L217'>217</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -495,24 +495,24 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import React, { useState, useEffect } from "react";</span>
-<span class="cstat-no" title="statement not covered" >import { useAuth } from "@/providers/AuthProvider";</span>
-<span class="cstat-no" title="statement not covered" >import { Button } from "@/components/ui/button";</span>
-<span class="cstat-no" title="statement not covered" >import { Input } from "@/components/ui/input";</span>
-<span class="cstat-no" title="statement not covered" >import { Card } from "@/components/ui/card";</span>
-<span class="cstat-no" title="statement not covered" >import { LoadingSpinner } from "../ui/loading-spinner";</span>
-<span class="cstat-no" title="statement not covered" >import { User, AlertCircle, Check } from "lucide-react";</span>
-<span class="cstat-no" title="statement not covered" >import { Alert, AlertDescription } from "../ui/alert";</span>
-<span class="cstat-no" title="statement not covered" >import { supabase } from "@/lib/supabase";</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useState, useEffect } from "react";
+import { useAuth } from "@/providers/AuthProvider";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Card } from "@/components/ui/card";
+import { LoadingSpinner } from "../ui/loading-spinner";
+import { User, AlertCircle, Check } from "lucide-react";
+import { Alert, AlertDescription } from "../ui/alert";
+import { supabase } from "@/lib/supabase";
 import { UserProfile } from "@/lib/database.types";
-<span class="cstat-no" title="statement not covered" >import { logger } from "@/lib/logger";</span>
+import { logger } from "@/lib/logger";
 &nbsp;
 interface UserProfileFormProps {
   onSuccess?: () =&gt; void;
   className?: string;
 }
 &nbsp;
-export const <span class="cstat-no" title="statement not covered" >UserProfileForm: React.FC&lt;UserProfileFormProps&gt; = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span>{</span></span>
+export const UserProfileForm: React.FC&lt;UserProfileFormProps&gt; = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >({</span></span>
   onSuccess,
   className = <span class="branch-0 cbranch-no" title="branch not covered" >"",</span>
 }) =&gt; {
@@ -526,13 +526,13 @@ export const <span class="cstat-no" title="statement not covered" >UserProfileFo
   const [profile, setProfile] = <span class="cstat-no" title="statement not covered" >useState&lt;UserProfile | null&gt;(null);</span>
 &nbsp;
   // Fetch user profile data when component mounts
-<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (user?.id) {</span>
+<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    if (user?.id) {</span>
 <span class="cstat-no" title="statement not covered" >      fetchUserProfile(user.id);</span>
     }
   }, [user]);
 &nbsp;
-  const fetchUserProfile = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async </span>(userId: string) =&gt; {</span>
+  const fetchUserProfile = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >as</span>ync (userId: string) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    try {</span>
 <span class="cstat-no" title="statement not covered" >      setLoading(true);</span>
       const { data, error } = <span class="cstat-no" title="statement not covered" >await supabase</span>
@@ -541,13 +541,13 @@ export const <span class="cstat-no" title="statement not covered" >UserProfileFo
         .eq("user_id", userId)
         .single();
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (error) {</span>
+<span class="cstat-no" title="statement not covered" >      if (error) {</span>
 <span class="cstat-no" title="statement not covered" >        logger.error("Error fetching user profile:", error);</span>
 <span class="cstat-no" title="statement not covered" >        setError("Failed to load profile data");</span>
 <span class="cstat-no" title="statement not covered" >        return;</span>
       }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (data) {</span>
+<span class="cstat-no" title="statement not covered" >      if (data) {</span>
 <span class="cstat-no" title="statement not covered" >        setProfile(data as UserProfile);</span>
 <span class="cstat-no" title="statement not covered" >        setFirstName(data.first_name || "");</span>
 <span class="cstat-no" title="statement not covered" >        setLastName(data.last_name || "");</span>
@@ -561,9 +561,9 @@ export const <span class="cstat-no" title="statement not covered" >UserProfileFo
     }
   };
 &nbsp;
-  const handleSubmit = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async </span>(e: React.FormEvent) =&gt; {</span>
+  const handleSubmit = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >as</span>ync (e: React.FormEvent) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    e.preventDefault();</span>
-<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (!user?.id) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >    if (!user?.id) <span class="cstat-no" title="statement not covered" >return;</span></span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    setLoading(true);</span>
 <span class="cstat-no" title="statement not covered" >    setError(null);</span>
@@ -571,14 +571,14 @@ export const <span class="cstat-no" title="statement not covered" >UserProfileFo
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    try {</span>
       // Basic validation
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (username &amp;&amp; username.length &lt; 3) {</span>
+<span class="cstat-no" title="statement not covered" >      if (username &amp;&amp; username.length &lt; 3) {</span>
 <span class="cstat-no" title="statement not covered" >        setError("Username must be at least 3 characters long");</span>
 <span class="cstat-no" title="statement not covered" >        setLoading(false);</span>
 <span class="cstat-no" title="statement not covered" >        return;</span>
       }
 &nbsp;
       // Check if username is already taken (if changed)
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (username &amp;&amp; username !== profile?.username) {</span>
+<span class="cstat-no" title="statement not covered" >      if (username &amp;&amp; username !== profile?.username) {</span>
         const { data: existingUser, error: usernameCheckError } = <span class="cstat-no" title="statement not covered" >await supabase</span>
           .from("user_profiles")
           .select("user_id")
@@ -586,7 +586,7 @@ export const <span class="cstat-no" title="statement not covered" >UserProfileFo
           .neq("user_id", user.id)
           .maybeSingle();
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if (usernameCheckError) {</span>
+<span class="cstat-no" title="statement not covered" >        if (usernameCheckError) {</span>
 <span class="cstat-no" title="statement not covered" >          logger.error(</span>
             "Error checking username availability:",
             usernameCheckError,
@@ -596,7 +596,7 @@ export const <span class="cstat-no" title="statement not covered" >UserProfileFo
 <span class="cstat-no" title="statement not covered" >          return;</span>
         }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if (existingUser) {</span>
+<span class="cstat-no" title="statement not covered" >        if (existingUser) {</span>
 <span class="cstat-no" title="statement not covered" >          setError("Username is already taken");</span>
 <span class="cstat-no" title="statement not covered" >          setLoading(false);</span>
 <span class="cstat-no" title="statement not covered" >          return;</span>
@@ -613,7 +613,7 @@ export const <span class="cstat-no" title="statement not covered" >UserProfileFo
         })
         .eq("user_id", user.id);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (updateError) {</span>
+<span class="cstat-no" title="statement not covered" >      if (updateError) {</span>
 <span class="cstat-no" title="statement not covered" >        logger.error("Error updating user profile:", updateError);</span>
 <span class="cstat-no" title="statement not covered" >        setError("Failed to update profile");</span>
 <span class="cstat-no" title="statement not covered" >        return;</span>
@@ -624,7 +624,7 @@ export const <span class="cstat-no" title="statement not covered" >UserProfileFo
         username,
       });
 <span class="cstat-no" title="statement not covered" >      setSuccess(true);</span>
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (onSuccess) <span class="cstat-no" title="statement not covered" >onSuccess();</span></span>
+<span class="cstat-no" title="statement not covered" >      if (onSuccess) <span class="cstat-no" title="statement not covered" >onSuccess();</span></span>
 &nbsp;
       // Refresh profile data
 <span class="cstat-no" title="statement not covered" >      await fetchUserProfile(user.id);</span>
@@ -711,14 +711,14 @@ export const <span class="cstat-no" title="statement not covered" >UserProfileFo
   );
 };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >export default UserProfileForm;</span></pre></td></tr></table></pre>
+export default UserProfileForm;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-02-12T16:54:46.052Z
+                at 2026-02-12T19:39:03.152Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

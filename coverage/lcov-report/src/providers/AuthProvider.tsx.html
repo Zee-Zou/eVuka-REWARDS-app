@@ -25,14 +25,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/288</span>
+                <span class='fraction'>0/280</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/36</span>
+                <span class='fraction'>0/56</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/284</span>
+                <span class='fraction'>0/276</span>
             </div>
         
             
@@ -663,23 +663,20 @@
 <a name='L598'></a><a href='#L598'>598</a>
 <a name='L599'></a><a href='#L599'>599</a>
 <a name='L600'></a><a href='#L600'>600</a>
-<a name='L601'></a><a href='#L601'>601</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L601'></a><a href='#L601'>601</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -688,12 +685,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -1256,30 +1256,30 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import {</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {
   createContext,
   useContext,
   useEffect,
   useState,
   useCallback,
 } from "react";
-<span class="cstat-no" title="statement not covered" >import { useNavigate } from "react-router-dom";</span>
-<span class="cstat-no" title="statement not covered" >import { supabase } from "../lib/supabase";</span>
+import { useNavigate } from "react-router-dom";
+import { supabase } from "../lib/supabase";
 import { Session, User } from "@supabase/supabase-js";
-<span class="cstat-no" title="statement not covered" >import { logger } from "../lib/logger";</span>
-<span class="cstat-no" title="statement not covered" >import {</span>
+import { logger } from "../lib/logger";
+import {
   secureStore,
   applyRateLimitToAuth,
   sanitizeUrl,
 } from "../lib/security-enhanced";
-<span class="cstat-no" title="statement not covered" >import {</span>
+import {
   AuthContext,
   AuthContextType,
   AuthResult,
@@ -1293,7 +1293,7 @@ const SESSION_LAST_VALIDATED_KEY = <span class="cstat-no" title="statement not c
 const SESSION_VALIDATION_INTERVAL = <span class="cstat-no" title="statement not covered" >15 * 60 * 1000;</span> // 15 minutes
 &nbsp;
 // Define AuthProvider as a named function component (not an arrow function)
-<span class="cstat-no" title="statement not covered" >export function <span class="fstat-no" title="function not covered" >A</span>uthProvider(</span>{ children }: { children: React.ReactNode }) {
+export function <span class="fstat-no" title="function not covered" >AuthProvider(</span>{ children }: { children: React.ReactNode }) {
   const [session, setSession] = <span class="cstat-no" title="statement not covered" >useState&lt;Session | null&gt;(null);</span>
   const [user, setUser] = <span class="cstat-no" title="statement not covered" >useState&lt;User | null&gt;(null);</span>
   const [userProfile, setUserProfile] = <span class="cstat-no" title="statement not covered" >useState&lt;UserProfile | null&gt;(null);</span>
@@ -1302,7 +1302,7 @@ const SESSION_VALIDATION_INTERVAL = <span class="cstat-no" title="statement not 
   const navigate = <span class="cstat-no" title="statement not covered" >useNavigate();</span>
 &nbsp;
   // Generate a fingerprint for the current browser environment
-  const generateFingerprint = <span class="cstat-no" title="statement not covered" >useCallback(<span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
+  const generateFingerprint = <span class="cstat-no" title="statement not covered" >useCallback(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
     const userAgent = <span class="cstat-no" title="statement not covered" >navigator.userAgent;</span>
     const language = <span class="cstat-no" title="statement not covered" >navigator.language;</span>
     const screenWidth = <span class="cstat-no" title="statement not covered" >window.screen.width;</span>
@@ -1314,19 +1314,19 @@ const SESSION_VALIDATION_INTERVAL = <span class="cstat-no" title="statement not 
   }, []);
 &nbsp;
   // Clear session storage and redirect to login
-  const clearSessionAndRedirect = <span class="cstat-no" title="statement not covered" >useCallback(<span class="fstat-no" title="function not covered" >async </span>() =&gt; {</span>
+  const clearSessionAndRedirect = <span class="cstat-no" title="statement not covered" >useCallback(<span class="fstat-no" title="function not covered" >as</span>ync () =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    await secureStore.removeItem(SESSION_FINGERPRINT_KEY);</span>
 <span class="cstat-no" title="statement not covered" >    await secureStore.removeItem(SESSION_LAST_VALIDATED_KEY);</span>
 <span class="cstat-no" title="statement not covered" >    navigate("/auth/login");</span>
   }, [navigate]);
 &nbsp;
   // Sign out function defined early to avoid circular dependencies
-  const signOut = <span class="cstat-no" title="statement not covered" >useCallback(<span class="fstat-no" title="function not covered" >async </span>(): Promise&lt;AuthResult&gt; =&gt; {</span>
+  const signOut = <span class="cstat-no" title="statement not covered" >useCallback(<span class="fstat-no" title="function not covered" >as</span>ync (): Promise&lt;AuthResult&gt; =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    try {</span>
 <span class="cstat-no" title="statement not covered" >      setError(null);</span>
       const { error: signOutError } = <span class="cstat-no" title="statement not covered" >await supabase.auth.signOut();</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (signOutError) {</span>
+<span class="cstat-no" title="statement not covered" >      if (signOutError) {</span>
 <span class="cstat-no" title="statement not covered" >        logger.error("Sign out error:", signOutError);</span>
 <span class="cstat-no" title="statement not covered" >        setError(formatAuthError(signOutError));</span>
 <span class="cstat-no" title="statement not covered" >        return {</span>
@@ -1348,8 +1348,8 @@ const SESSION_VALIDATION_INTERVAL = <span class="cstat-no" title="statement not 
   }, [clearSessionAndRedirect]);
 &nbsp;
   // Validate the current session against stored fingerprint
-  const validateSession = <span class="cstat-no" title="statement not covered" >useCallback(<span class="fstat-no" title="function not covered" >async </span>(): Promise&lt;boolean&gt; =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (!session) <span class="cstat-no" title="statement not covered" >return false;</span></span>
+  const validateSession = <span class="cstat-no" title="statement not covered" >useCallback(<span class="fstat-no" title="function not covered" >as</span>ync (): Promise&lt;boolean&gt; =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    if (!session) <span class="cstat-no" title="statement not covered" >return false;</span></span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    try {</span>
       // Get stored fingerprint
@@ -1359,7 +1359,7 @@ const SESSION_VALIDATION_INTERVAL = <span class="cstat-no" title="statement not 
       const currentFingerprint = <span class="cstat-no" title="statement not covered" >generateFingerprint();</span>
 &nbsp;
       // If no stored fingerprint or fingerprints don't match, session might be hijacked
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (!storedFingerprint || storedFingerprint !== currentFingerprint) {</span>
+<span class="cstat-no" title="statement not covered" >      if (!storedFingerprint || storedFingerprint !== currentFingerprint) {</span>
 <span class="cstat-no" title="statement not covered" >        logger.warn("Session validation failed: fingerprint mismatch");</span>
 <span class="cstat-no" title="statement not covered" >        await clearSessionAndRedirect();</span>
 <span class="cstat-no" title="statement not covered" >        return false;</span>
@@ -1378,16 +1378,16 @@ const SESSION_VALIDATION_INTERVAL = <span class="cstat-no" title="statement not 
   }, [session, generateFingerprint, clearSessionAndRedirect]);
 &nbsp;
   // Refresh the session with Supabase
-  const refreshSession = <span class="cstat-no" title="statement not covered" >useCallback(<span class="fstat-no" title="function not covered" >async </span>(): Promise&lt;void&gt; =&gt; {</span>
+  const refreshSession = <span class="cstat-no" title="statement not covered" >useCallback(<span class="fstat-no" title="function not covered" >as</span>ync (): Promise&lt;void&gt; =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    try {</span>
       const { data, error } = <span class="cstat-no" title="statement not covered" >await supabase.auth.refreshSession();</span>
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (error) {</span>
+<span class="cstat-no" title="statement not covered" >      if (error) {</span>
 <span class="cstat-no" title="statement not covered" >        logger.error("Session refresh error:", error);</span>
 <span class="cstat-no" title="statement not covered" >        await clearSessionAndRedirect();</span>
 <span class="cstat-no" title="statement not covered" >        return;</span>
       }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (data.session) {</span>
+<span class="cstat-no" title="statement not covered" >      if (data.session) {</span>
 <span class="cstat-no" title="statement not covered" >        setSession(data.session);</span>
 <span class="cstat-no" title="statement not covered" >        setUser(data.session.user);</span>
 &nbsp;
@@ -1401,10 +1401,10 @@ const SESSION_VALIDATION_INTERVAL = <span class="cstat-no" title="statement not 
   }, [validateSession, clearSessionAndRedirect]);
 &nbsp;
   // Periodically validate the session
-<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (!session) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    if (!session) <span class="cstat-no" title="statement not covered" >return;</span></span>
 &nbsp;
-    const checkSession = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async </span>() =&gt; {</span>
+    const checkSession = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >as</span>ync () =&gt; {</span>
       const lastValidatedStr = <span class="cstat-no" title="statement not covered" >await secureStore.getItem(</span>
         SESSION_LAST_VALIDATED_KEY,
       );
@@ -1413,17 +1413,17 @@ const SESSION_VALIDATION_INTERVAL = <span class="cstat-no" title="statement not 
         : 0;
       const now = <span class="cstat-no" title="statement not covered" >Date.now();</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (now - lastValidated &gt; SESSION_VALIDATION_INTERVAL) {</span>
+<span class="cstat-no" title="statement not covered" >      if (now - lastValidated &gt; SESSION_VALIDATION_INTERVAL) {</span>
 <span class="cstat-no" title="statement not covered" >        await validateSession();</span>
       }
     };
 &nbsp;
     const interval = <span class="cstat-no" title="statement not covered" >setInterval(checkSession, 60000);</span> // Check every minute
-<span class="cstat-no" title="statement not covered" >    return <span class="fstat-no" title="function not covered" >() =</span>&gt; <span class="cstat-no" title="statement not covered" >clearInterval(interval);</span></span>
+<span class="cstat-no" title="statement not covered" >    return <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >clearInterval(interval);</span></span>
   }, [session, validateSession]);
 &nbsp;
   // Fetch user profile data from Supabase
-  const fetchUserProfile = <span class="cstat-no" title="statement not covered" >useCallback(<span class="fstat-no" title="function not covered" >async </span>(userId: string) =&gt; {</span>
+  const fetchUserProfile = <span class="cstat-no" title="statement not covered" >useCallback(<span class="fstat-no" title="function not covered" >as</span>ync (userId: string) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    try {</span>
       const { data, error } = <span class="cstat-no" title="statement not covered" >await supabase</span>
         .from("user_profiles")
@@ -1431,12 +1431,12 @@ const SESSION_VALIDATION_INTERVAL = <span class="cstat-no" title="statement not 
         .eq("user_id", userId)
         .single();
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (error) {</span>
+<span class="cstat-no" title="statement not covered" >      if (error) {</span>
 <span class="cstat-no" title="statement not covered" >        logger.error("Error fetching user profile:", error);</span>
 <span class="cstat-no" title="statement not covered" >        return null;</span>
       }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (data) {</span>
+<span class="cstat-no" title="statement not covered" >      if (data) {</span>
 <span class="cstat-no" title="statement not covered" >        setUserProfile(data as UserProfile);</span>
 <span class="cstat-no" title="statement not covered" >        return data as UserProfile;</span>
       }
@@ -1447,13 +1447,13 @@ const SESSION_VALIDATION_INTERVAL = <span class="cstat-no" title="statement not 
     }
   }, []);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
     // Get initial session
-<span class="cstat-no" title="statement not covered" >    supabase.auth.getSession().then(<span class="fstat-no" title="function not covered" >async </span>({ data: { session } }) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    supabase.auth.getSession().then(<span class="fstat-no" title="function not covered" >as</span>ync ({ data: { session } }) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      setSession(session);</span>
 <span class="cstat-no" title="statement not covered" >      setUser(session?.user ?? null);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (session) {</span>
+<span class="cstat-no" title="statement not covered" >      if (session) {</span>
         // Store fingerprint for session validation
 <span class="cstat-no" title="statement not covered" >        await secureStore.setItem(</span>
           SESSION_FINGERPRINT_KEY,
@@ -1474,7 +1474,7 @@ const SESSION_VALIDATION_INTERVAL = <span class="cstat-no" title="statement not 
     // Listen for auth changes
     const {
       data: { subscription },
-    } = <span class="cstat-no" title="statement not covered" >supabase.auth.onAuthStateChange(<span class="fstat-no" title="function not covered" >async </span>(_event, session) =&gt; {</span>
+    } = <span class="cstat-no" title="statement not covered" >supabase.auth.onAuthStateChange(<span class="fstat-no" title="function not covered" >as</span>ync (_event, session) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      setSession(session);</span>
 <span class="cstat-no" title="statement not covered" >      setUser(session?.user ?? null);</span>
 &nbsp;
@@ -1498,14 +1498,14 @@ const SESSION_VALIDATION_INTERVAL = <span class="cstat-no" title="statement not 
 <span class="cstat-no" title="statement not covered" >      setLoading(false);</span>
     });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return <span class="fstat-no" title="function not covered" >() =</span>&gt; <span class="cstat-no" title="statement not covered" >subscription.unsubscribe();</span></span>
+<span class="cstat-no" title="statement not covered" >    return <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >subscription.unsubscribe();</span></span>
   }, [generateFingerprint, fetchUserProfile]);
 &nbsp;
-  const signIn = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async </span>(</span>
+  const signIn = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >as</span>ync (</span>
     email: string,
     password: string,
   ): Promise&lt;AuthResult&lt;{ requiresMFA?: boolean; userId?: string }&gt;&gt; =&gt; {
-<span class="cstat-no" title="statement not covered" >    return applyRateLimitToAuth("signIn", <span class="fstat-no" title="function not covered" >async </span>() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    return applyRateLimitToAuth("signIn", <span class="fstat-no" title="function not covered" >as</span>ync () =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      try {</span>
 <span class="cstat-no" title="statement not covered" >        setError(null);</span>
         const { data, error } = <span class="cstat-no" title="statement not covered" >await supabase.auth.signInWithPassword({</span>
@@ -1513,7 +1513,7 @@ const SESSION_VALIDATION_INTERVAL = <span class="cstat-no" title="statement not 
           password,
         });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if (error) {</span>
+<span class="cstat-no" title="statement not covered" >        if (error) {</span>
 <span class="cstat-no" title="statement not covered" >          logger.error("Sign in error:", error);</span>
 <span class="cstat-no" title="statement not covered" >          setError(formatAuthError(error));</span>
 <span class="cstat-no" title="statement not covered" >          return { data: null, error: formatAuthError(error), success: false };</span>
@@ -1524,12 +1524,12 @@ const SESSION_VALIDATION_INTERVAL = <span class="cstat-no" title="statement not 
         const userId = <span class="cstat-no" title="statement not covered" >data.user?.id;</span>
         let requiresMFA = <span class="cstat-no" title="statement not covered" >false;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if (userId) {</span>
+<span class="cstat-no" title="statement not covered" >        if (userId) {</span>
           const mfaResult = <span class="cstat-no" title="statement not covered" >await checkMFAEnabled(userId);</span>
 <span class="cstat-no" title="statement not covered" >          requiresMFA = mfaResult.data || false;</span>
         }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if (!requiresMFA) {</span>
+<span class="cstat-no" title="statement not covered" >        if (!requiresMFA) {</span>
           // Store fingerprint for session validation
 <span class="cstat-no" title="statement not covered" >          await secureStore.setItem(</span>
             SESSION_FINGERPRINT_KEY,
@@ -1564,11 +1564,11 @@ const SESSION_VALIDATION_INTERVAL = <span class="cstat-no" title="statement not 
     });
   };
 &nbsp;
-  const signUp = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async </span>(</span>
+  const signUp = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >as</span>ync (</span>
     email: string,
     password: string,
   ): Promise&lt;AuthResult&gt; =&gt; {
-<span class="cstat-no" title="statement not covered" >    return applyRateLimitToAuth("signUp", <span class="fstat-no" title="function not covered" >async </span>() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    return applyRateLimitToAuth("signUp", <span class="fstat-no" title="function not covered" >as</span>ync () =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      try {</span>
 <span class="cstat-no" title="statement not covered" >        setError(null);</span>
         const { data, error } = <span class="cstat-no" title="statement not covered" >await supabase.auth.signUp({</span>
@@ -1579,7 +1579,7 @@ const SESSION_VALIDATION_INTERVAL = <span class="cstat-no" title="statement not 
           },
         });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if (error) {</span>
+<span class="cstat-no" title="statement not covered" >        if (error) {</span>
 <span class="cstat-no" title="statement not covered" >          logger.error("Sign up error:", error);</span>
 <span class="cstat-no" title="statement not covered" >          setError(formatAuthError(error));</span>
 <span class="cstat-no" title="statement not covered" >          return { data: null, error: formatAuthError(error), success: false };</span>
@@ -1596,15 +1596,15 @@ const SESSION_VALIDATION_INTERVAL = <span class="cstat-no" title="statement not 
     });
   };
 &nbsp;
-  const resetPassword = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async </span>(email: string): Promise&lt;AuthResult&gt; =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    return applyRateLimitToAuth("resetPassword", <span class="fstat-no" title="function not covered" >async </span>() =&gt; {</span>
+  const resetPassword = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >as</span>ync (email: string): Promise&lt;AuthResult&gt; =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    return applyRateLimitToAuth("resetPassword", <span class="fstat-no" title="function not covered" >as</span>ync () =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      try {</span>
 <span class="cstat-no" title="statement not covered" >        setError(null);</span>
         const { error } = <span class="cstat-no" title="statement not covered" >await supabase.auth.resetPasswordForEmail(email, {</span>
           redirectTo: `${window.location.origin}/auth/password-reset`,
         });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if (error) {</span>
+<span class="cstat-no" title="statement not covered" >        if (error) {</span>
 <span class="cstat-no" title="statement not covered" >          logger.error("Reset password error:", error);</span>
 <span class="cstat-no" title="statement not covered" >          setError(formatAuthError(error));</span>
 <span class="cstat-no" title="statement not covered" >          return { data: null, error: formatAuthError(error), success: false };</span>
@@ -1621,7 +1621,7 @@ const SESSION_VALIDATION_INTERVAL = <span class="cstat-no" title="statement not 
     });
   };
 &nbsp;
-  const verifyEmail = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async </span>(token: string): Promise&lt;AuthResult&gt; =&gt; {</span>
+  const verifyEmail = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >as</span>ync (token: string): Promise&lt;AuthResult&gt; =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    try {</span>
 <span class="cstat-no" title="statement not covered" >      setError(null);</span>
       // This is a placeholder - in a real implementation, you would verify the token
@@ -1635,7 +1635,7 @@ const SESSION_VALIDATION_INTERVAL = <span class="cstat-no" title="statement not 
     }
   };
 &nbsp;
-  const resendVerificationEmail = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async </span>(</span>
+  const resendVerificationEmail = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >as</span>ync (</span>
     email?: string,
   ): Promise&lt;AuthResult&gt; =&gt; {
 <span class="cstat-no" title="statement not covered" >    try {</span>
@@ -1653,7 +1653,7 @@ const SESSION_VALIDATION_INTERVAL = <span class="cstat-no" title="statement not 
     }
   };
 &nbsp;
-  const signInWithGoogle = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async </span>(): Promise&lt;AuthResult&gt; =&gt; {</span>
+  const signInWithGoogle = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >as</span>ync (): Promise&lt;AuthResult&gt; =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    try {</span>
 <span class="cstat-no" title="statement not covered" >      setError(null);</span>
       const { error } = <span class="cstat-no" title="statement not covered" >await supabase.auth.signInWithOAuth({</span>
@@ -1662,7 +1662,7 @@ const SESSION_VALIDATION_INTERVAL = <span class="cstat-no" title="statement not 
           redirectTo: `${window.location.origin}/auth/callback`,
         },
       });
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (error) {</span>
+<span class="cstat-no" title="statement not covered" >      if (error) {</span>
 <span class="cstat-no" title="statement not covered" >        logger.error("Google sign in error:", error);</span>
 <span class="cstat-no" title="statement not covered" >        setError(formatAuthError(error));</span>
 <span class="cstat-no" title="statement not covered" >        return { data: null, error: formatAuthError(error), success: false };</span>
@@ -1677,7 +1677,7 @@ const SESSION_VALIDATION_INTERVAL = <span class="cstat-no" title="statement not 
     }
   };
 &nbsp;
-  const signInWithApple = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async </span>(): Promise&lt;AuthResult&gt; =&gt; {</span>
+  const signInWithApple = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >as</span>ync (): Promise&lt;AuthResult&gt; =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    try {</span>
 <span class="cstat-no" title="statement not covered" >      setError(null);</span>
       const { error } = <span class="cstat-no" title="statement not covered" >await supabase.auth.signInWithOAuth({</span>
@@ -1686,7 +1686,7 @@ const SESSION_VALIDATION_INTERVAL = <span class="cstat-no" title="statement not 
           redirectTo: `${window.location.origin}/auth/callback`,
         },
       });
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (error) {</span>
+<span class="cstat-no" title="statement not covered" >      if (error) {</span>
 <span class="cstat-no" title="statement not covered" >        logger.error("Apple sign in error:", error);</span>
 <span class="cstat-no" title="statement not covered" >        setError(formatAuthError(error));</span>
 <span class="cstat-no" title="statement not covered" >        return { data: null, error: formatAuthError(error), success: false };</span>
@@ -1702,7 +1702,7 @@ const SESSION_VALIDATION_INTERVAL = <span class="cstat-no" title="statement not 
   };
 &nbsp;
   // Setup MFA for a user
-  const setupMFA = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async </span>(</span>
+  const setupMFA = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >as</span>ync (</span>
     userId: string,
   ): Promise&lt;AuthResult&lt;{ secret: string; qrCodeUrl: string }&gt;&gt; =&gt; {
 <span class="cstat-no" title="statement not covered" >    try {</span>
@@ -1726,7 +1726,7 @@ const SESSION_VALIDATION_INTERVAL = <span class="cstat-no" title="statement not 
   };
 &nbsp;
   // Verify MFA code
-  const verifyMFA = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async </span>(</span>
+  const verifyMFA = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >as</span>ync (</span>
     userId: string,
     code: string,
   ): Promise&lt;AuthResult&lt;boolean&gt;&gt; =&gt; {
@@ -1744,7 +1744,7 @@ const SESSION_VALIDATION_INTERVAL = <span class="cstat-no" title="statement not 
   };
 &nbsp;
   // Check if MFA is enabled for a user
-  const checkMFAEnabled = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async </span>(</span>
+  const checkMFAEnabled = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >as</span>ync (</span>
     userId: string,
   ): Promise&lt;AuthResult&lt;boolean&gt;&gt; =&gt; {
 <span class="cstat-no" title="statement not covered" >    try {</span>
@@ -1761,14 +1761,14 @@ const SESSION_VALIDATION_INTERVAL = <span class="cstat-no" title="statement not 
   };
 &nbsp;
   // Add method to update password
-  const updatePassword = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async </span>(newPassword: string): Promise&lt;AuthResult&gt; =&gt; {</span>
+  const updatePassword = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >as</span>ync (newPassword: string): Promise&lt;AuthResult&gt; =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    try {</span>
 <span class="cstat-no" title="statement not covered" >      setError(null);</span>
       const { error } = <span class="cstat-no" title="statement not covered" >await supabase.auth.updateUser({</span>
         password: newPassword,
       });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (error) {</span>
+<span class="cstat-no" title="statement not covered" >      if (error) {</span>
 <span class="cstat-no" title="statement not covered" >        logger.error("Update password error:", error);</span>
 <span class="cstat-no" title="statement not covered" >        setError(formatAuthError(error));</span>
 <span class="cstat-no" title="statement not covered" >        return { data: null, error: formatAuthError(error), success: false };</span>
@@ -1785,7 +1785,7 @@ const SESSION_VALIDATION_INTERVAL = <span class="cstat-no" title="statement not 
   };
 &nbsp;
   // Add method to sign in with Microsoft
-  const signInWithMicrosoft = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async </span>(): Promise&lt;AuthResult&gt; =&gt; {</span>
+  const signInWithMicrosoft = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >as</span>ync (): Promise&lt;AuthResult&gt; =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    try {</span>
 <span class="cstat-no" title="statement not covered" >      setError(null);</span>
       const { error } = <span class="cstat-no" title="statement not covered" >await supabase.auth.signInWithOAuth({</span>
@@ -1794,7 +1794,7 @@ const SESSION_VALIDATION_INTERVAL = <span class="cstat-no" title="statement not 
           redirectTo: `${window.location.origin}/auth/callback`,
         },
       });
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (error) {</span>
+<span class="cstat-no" title="statement not covered" >      if (error) {</span>
 <span class="cstat-no" title="statement not covered" >        logger.error("Microsoft sign in error:", error);</span>
 <span class="cstat-no" title="statement not covered" >        setError(formatAuthError(error));</span>
 <span class="cstat-no" title="statement not covered" >        return { data: null, error: formatAuthError(error), success: false };</span>
@@ -1810,7 +1810,7 @@ const SESSION_VALIDATION_INTERVAL = <span class="cstat-no" title="statement not 
   };
 &nbsp;
   // Add method to disable MFA
-  const disableMFA = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async </span>(userId: string): Promise&lt;AuthResult&gt; =&gt; {</span>
+  const disableMFA = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >as</span>ync (userId: string): Promise&lt;AuthResult&gt; =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    try {</span>
 <span class="cstat-no" title="statement not covered" >      setError(null);</span>
       // This would be implemented with a Supabase Edge Function
@@ -1825,7 +1825,7 @@ const SESSION_VALIDATION_INTERVAL = <span class="cstat-no" title="statement not 
   };
 &nbsp;
   // Add method to clear error
-  const clearError = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
+  const clearError = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    setError(null);</span>
   };
 &nbsp;
@@ -1856,9 +1856,9 @@ const SESSION_VALIDATION_INTERVAL = <span class="cstat-no" title="statement not 
 }
 &nbsp;
 // Export the hook as a named function
-<span class="cstat-no" title="statement not covered" >export function <span class="fstat-no" title="function not covered" >u</span>seAuth(</span>) {
+export function <span class="fstat-no" title="function not covered" >useAuth(</span>) {
   const context = <span class="cstat-no" title="statement not covered" >useContext(AuthContext);</span>
-<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if (!context) {</span>
+<span class="cstat-no" title="statement not covered" >  if (!context) {</span>
 <span class="cstat-no" title="statement not covered" >    throw new Error("useAuth must be used within an AuthProvider");</span>
   }
 <span class="cstat-no" title="statement not covered" >  return context;</span>
@@ -1870,7 +1870,7 @@ const SESSION_VALIDATION_INTERVAL = <span class="cstat-no" title="statement not 
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-02-12T16:54:46.052Z
+                at 2026-02-12T19:39:03.152Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

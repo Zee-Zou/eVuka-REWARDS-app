@@ -25,14 +25,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/39</span>
+                <span class='fraction'>0/33</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/25</span>
+                <span class='fraction'>0/28</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/37</span>
+                <span class='fraction'>0/33</span>
             </div>
         
             
@@ -186,10 +186,10 @@
 <a name='L121'></a><a href='#L121'>121</a>
 <a name='L122'></a><a href='#L122'>122</a>
 <a name='L123'></a><a href='#L123'>123</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -308,10 +308,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { analyzeReceipt, detectFraud } from "./ai-analysis";
-<span class="cstat-no" title="statement not covered" >import { logger } from "./logger";</span>
-<span class="cstat-no" title="statement not covered" >import { ProcessingError } from "@/types/errors";</span>
-<span class="cstat-no" title="statement not covered" >import { checkForDuplicates, extractAdvancedData } from "./duplicate-detection";</span>
-<span class="cstat-no" title="statement not covered" >import { performOCR, extractStructuredData } from "./ocr";</span>
+import { logger } from "./logger";
+import { ProcessingError } from "@/types/errors";
+import { checkForDuplicates, extractAdvancedData } from "./duplicate-detection";
+import { performOCR, extractStructuredData } from "./ocr";
 &nbsp;
 export interface ProcessedReceipt {
   text: string;
@@ -333,14 +333,14 @@ declare global {
   }
 }
 &nbsp;
-export const <span class="cstat-no" title="statement not covered" >processReceipt = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >a</span>sync </span>(</span>
+export const processReceipt = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >as</span>ync (</span>
   imageData: string,
   enableOCR: boolean = <span class="branch-0 cbranch-no" title="branch not covered" >true,</span>
 ): Promise&lt;ProcessedReceipt&gt; =&gt; {
 <span class="cstat-no" title="statement not covered" >  try {</span>
     // Skip AI analysis since API key is not available
     // First try OCR if enabled
-<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (enableOCR) {</span>
+<span class="cstat-no" title="statement not covered" >    if (enableOCR) {</span>
 <span class="cstat-no" title="statement not covered" >      try {</span>
 <span class="cstat-no" title="statement not covered" >        logger.info("Using OCR for receipt processing");</span>
 &nbsp;
@@ -397,7 +397,7 @@ export const <span class="cstat-no" title="statement not covered" >processReceip
   }
 };
 &nbsp;
-export const <span class="cstat-no" title="statement not covered" >calculatePoints = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span></span></span>
+export const calculatePoints = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span></span>
   total: number,
   timeDiff: number,
   brandMultiplier = <span class="branch-0 cbranch-no" title="branch not covered" >1,</span>
@@ -408,7 +408,7 @@ export const <span class="cstat-no" title="statement not covered" >calculatePoin
   // Bonus points for larger receipts
 <span class="cstat-no" title="statement not covered" >  if (total &gt;= 100) {</span>
 <span class="cstat-no" title="statement not covered" >    points += 25; </span>// $25 bonus for receipts over $100
-  } else <span class="cstat-no" title="statement not covered" ><span class="missing-if-branch" title="if path not taken" >I</span>if (total &gt;= 50) {</span>
+  } else <span class="cstat-no" title="statement not covered" >if (total &gt;= 50) {</span>
 <span class="cstat-no" title="statement not covered" >    points += 10; </span>// $10 bonus for receipts over $50
   }
 &nbsp;
@@ -422,7 +422,7 @@ export const <span class="cstat-no" title="statement not covered" >calculatePoin
   } else <span class="cstat-no" title="statement not covered" >if (timeDiff &lt;= 48) {</span>
     // 24-48 hours: 50%
 <span class="cstat-no" title="statement not covered" >    return Math.floor(points * 0.5);</span>
-  } else <span class="cstat-no" title="statement not covered" ><span class="missing-if-branch" title="if path not taken" >I</span>if (timeDiff &lt;= 72) {</span>
+  } else <span class="cstat-no" title="statement not covered" >if (timeDiff &lt;= 72) {</span>
     // 48-72 hours: 10%
 <span class="cstat-no" title="statement not covered" >    return Math.floor(points * 0.1);</span>
   }
@@ -436,7 +436,7 @@ export const <span class="cstat-no" title="statement not covered" >calculatePoin
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-02-12T16:54:46.052Z
+                at 2026-02-12T19:39:03.152Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

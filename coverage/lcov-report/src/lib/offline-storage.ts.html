@@ -25,28 +25,28 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/124</span>
+                <span class='fraction'>0/121</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/20</span>
+                <span class='fraction'>0/30</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/32</span>
+                <span class='fraction'>0/31</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/123</span>
+                <span class='fraction'>0/120</span>
             </div>
         
             
@@ -374,9 +374,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -680,9 +680,9 @@
  * Provides functionality for storing and retrieving data when offline
  */
 &nbsp;
-<span class="cstat-no" title="statement not covered" >import { v4 as uuidv4 } from "uuid";</span>
-<span class="cstat-no" title="statement not covered" >import { logger } from "./logger";</span>
-<span class="cstat-no" title="statement not covered" >import { encryptForStorage, decryptFromStorage } from "./crypto-secure";</span>
+import { v4 as uuidv4 } from "uuid";
+import { logger } from "./logger";
+import { encryptForStorage, decryptFromStorage } from "./crypto-secure";
 &nbsp;
 interface OfflineReceipt {
   id: string;
@@ -692,29 +692,29 @@ interface OfflineReceipt {
   encryptionVersion?: number; // Track encryption version for key rotation
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >class O</span>fflineStorage {
-  private <span class="cstat-no" title="statement not covered" >dbName = "evuka-offline-db";</span>
-  private <span class="cstat-no" title="statement not covered" >dbVersion = 1;</span>
-  private <span class="cstat-no" title="statement not covered" >db: IDBDatabase | null = null;</span>
+class OfflineStorage {
+  private dbName = <span class="cstat-no" title="statement not covered" >"evuka-offline-db";</span>
+  private dbVersion = <span class="cstat-no" title="statement not covered" >1;</span>
+  private db: IDBDatabase | null = <span class="cstat-no" title="statement not covered" >null;</span>
 &nbsp;
   /**
    * Initialize the IndexedDB database
    */
-<span class="fstat-no" title="function not covered" >  async </span>init(): Promise&lt;void&gt; {
-<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (this.db) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="fstat-no" title="function not covered" >  as</span>ync init(): Promise&lt;void&gt; {
+<span class="cstat-no" title="statement not covered" >    if (this.db) <span class="cstat-no" title="statement not covered" >return;</span></span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    return new Promise(<span class="fstat-no" title="function not covered" >(r</span>esolve, reject) =&gt; {</span>
       const request = <span class="cstat-no" title="statement not covered" >indexedDB.open(this.dbName, this.dbVersion);</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >      request.onupgradeneeded = <span class="fstat-no" title="function not covered" >(e</span>vent) =&gt; {</span>
-        const db = (<span class="cstat-no" title="statement not covered" >event.target as IDBOpenDBRequest).result;</span>
+        const db = <span class="cstat-no" title="statement not covered" >(event.target as IDBOpenDBRequest).result;</span>
 &nbsp;
         // Create object stores if they don't exist
-<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if (!db.objectStoreNames.contains("offline-receipts")) {</span>
+<span class="cstat-no" title="statement not covered" >        if (!db.objectStoreNames.contains("offline-receipts")) {</span>
 <span class="cstat-no" title="statement not covered" >          db.createObjectStore("offline-receipts", { keyPath: "id" });</span>
         }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if (!db.objectStoreNames.contains("user-preferences")) {</span>
+<span class="cstat-no" title="statement not covered" >        if (!db.objectStoreNames.contains("user-preferences")) {</span>
 <span class="cstat-no" title="statement not covered" >          db.createObjectStore("user-preferences", { keyPath: "key" });</span>
         }
       };
@@ -736,7 +736,7 @@ interface OfflineReceipt {
    * Save a receipt for offline processing
    * Receipt image data is encrypted before storage for security
    */
-<span class="fstat-no" title="function not covered" >  async </span>saveReceipt(
+<span class="fstat-no" title="function not covered" >  as</span>ync saveReceipt(
     imageData: string,
     metadata?: Record&lt;string, unknown&gt;,
   ): Promise&lt;string&gt; {
@@ -762,7 +762,7 @@ interface OfflineReceipt {
     };
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    return new Promise(<span class="fstat-no" title="function not covered" >(r</span>esolve, reject) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (!this.db) {</span>
+<span class="cstat-no" title="statement not covered" >      if (!this.db) {</span>
 <span class="cstat-no" title="statement not covered" >        reject(new Error("Database not initialized"));</span>
 <span class="cstat-no" title="statement not covered" >        return;</span>
       }
@@ -777,13 +777,13 @@ interface OfflineReceipt {
           const store = <span class="cstat-no" title="statement not covered" >transaction.objectStore("offline-receipts");</span>
           const request = <span class="cstat-no" title="statement not covered" >store.add(receipt);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >          request.onsuccess = <span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
+<span class="cstat-no" title="statement not covered" >          request.onsuccess = <span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >            logger.info("Receipt saved for offline processing", {</span>
               id: receipt.id,
             });
 &nbsp;
             // Register for background sync if available
-<span class="cstat-no" title="statement not covered" >            <span class="missing-if-branch" title="if path not taken" >I</span>if ("serviceWorker" in navigator &amp;&amp; "SyncManager" in window) {</span>
+<span class="cstat-no" title="statement not covered" >            if ("serviceWorker" in navigator &amp;&amp; "SyncManager" in window) {</span>
 <span class="cstat-no" title="statement not covered" >              navigator.serviceWorker.ready</span>
                 .then(<span class="fstat-no" title="function not covered" >(r</span>egistration) =&gt;
 <span class="cstat-no" title="statement not covered" >                  registration.sync.register("sync-receipts"),</span>
@@ -804,7 +804,7 @@ interface OfflineReceipt {
               );
               // Exponential backoff for retries
 <span class="cstat-no" title="statement not covered" >              setTimeout(</span>
-<span class="fstat-no" title="function not covered" >                () =</span>&gt; <span class="cstat-no" title="statement not covered" >attemptSave(retryCount + 1, maxRetries),</span>
+<span class="fstat-no" title="function not covered" >                ()</span> =&gt; <span class="cstat-no" title="statement not covered" >attemptSave(retryCount + 1, maxRetries),</span>
                 Math.pow(2, retryCount) * 500,
               );
             } else {
@@ -822,7 +822,7 @@ interface OfflineReceipt {
               `Retrying save operation (${retryCount + 1}/${maxRetries})`,
             );
 <span class="cstat-no" title="statement not covered" >            setTimeout(</span>
-<span class="fstat-no" title="function not covered" >              () =</span>&gt; <span class="cstat-no" title="statement not covered" >attemptSave(retryCount + 1, maxRetries),</span>
+<span class="fstat-no" title="function not covered" >              ()</span> =&gt; <span class="cstat-no" title="statement not covered" >attemptSave(retryCount + 1, maxRetries),</span>
               Math.pow(2, retryCount) * 500,
             );
           } else {
@@ -839,11 +839,11 @@ interface OfflineReceipt {
    * Get all pending offline receipts
    * Decrypts receipt image data after retrieval
    */
-<span class="fstat-no" title="function not covered" >  async </span>getPendingReceipts(): Promise&lt;OfflineReceipt[]&gt; {
+<span class="fstat-no" title="function not covered" >  as</span>ync getPendingReceipts(): Promise&lt;OfflineReceipt[]&gt; {
 <span class="cstat-no" title="statement not covered" >    await this.init();</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return new Promise(<span class="fstat-no" title="function not covered" >async </span>(resolve, reject) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (!this.db) {</span>
+<span class="cstat-no" title="statement not covered" >    return new Promise(<span class="fstat-no" title="function not covered" >as</span>ync (resolve, reject) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      if (!this.db) {</span>
 <span class="cstat-no" title="statement not covered" >        reject(new Error("Database not initialized"));</span>
 <span class="cstat-no" title="statement not covered" >        return;</span>
       }
@@ -852,15 +852,15 @@ interface OfflineReceipt {
       const store = <span class="cstat-no" title="statement not covered" >transaction.objectStore("offline-receipts");</span>
       const request = <span class="cstat-no" title="statement not covered" >store.getAll();</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      request.onsuccess = <span class="fstat-no" title="function not covered" >async </span>() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      request.onsuccess = <span class="fstat-no" title="function not covered" >as</span>ync () =&gt; {</span>
         const encryptedReceipts: OfflineReceipt[] = <span class="cstat-no" title="statement not covered" >request.result;</span>
 &nbsp;
         // Decrypt image data for each receipt
         const decryptedReceipts = <span class="cstat-no" title="statement not covered" >await Promise.all(</span>
-          encryptedReceipts.map(<span class="fstat-no" title="function not covered" >async </span>(receipt) =&gt; {
+          encryptedReceipts.map(<span class="fstat-no" title="function not covered" >as</span>ync (receipt) =&gt; {
 <span class="cstat-no" title="statement not covered" >            try {</span>
               // Only decrypt if encryption version is present (newer receipts)
-<span class="cstat-no" title="statement not covered" >              <span class="missing-if-branch" title="if path not taken" >I</span>if (receipt.encryptionVersion) {</span>
+<span class="cstat-no" title="statement not covered" >              if (receipt.encryptionVersion) {</span>
                 const decryptedImageData = <span class="cstat-no" title="statement not covered" >await decryptFromStorage(receipt.imageData);</span>
 <span class="cstat-no" title="statement not covered" >                return {</span>
                   ...receipt,
@@ -891,11 +891,11 @@ interface OfflineReceipt {
   /**
    * Remove a receipt after it has been processed
    */
-<span class="fstat-no" title="function not covered" >  async </span>removeReceipt(id: string): Promise&lt;void&gt; {
+<span class="fstat-no" title="function not covered" >  as</span>ync removeReceipt(id: string): Promise&lt;void&gt; {
 <span class="cstat-no" title="statement not covered" >    await this.init();</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    return new Promise(<span class="fstat-no" title="function not covered" >(r</span>esolve, reject) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (!this.db) {</span>
+<span class="cstat-no" title="statement not covered" >      if (!this.db) {</span>
 <span class="cstat-no" title="statement not covered" >        reject(new Error("Database not initialized"));</span>
 <span class="cstat-no" title="statement not covered" >        return;</span>
       }
@@ -907,7 +907,7 @@ interface OfflineReceipt {
       const store = <span class="cstat-no" title="statement not covered" >transaction.objectStore("offline-receipts");</span>
       const request = <span class="cstat-no" title="statement not covered" >store.delete(id);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      request.onsuccess = <span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      request.onsuccess = <span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >        logger.info("Offline receipt removed", { id });</span>
 <span class="cstat-no" title="statement not covered" >        resolve();</span>
       };
@@ -922,11 +922,11 @@ interface OfflineReceipt {
   /**
    * Save user preferences for offline access
    */
-<span class="fstat-no" title="function not covered" >  async </span>savePreference(key: string, value: unknown): Promise&lt;void&gt; {
+<span class="fstat-no" title="function not covered" >  as</span>ync savePreference(key: string, value: unknown): Promise&lt;void&gt; {
 <span class="cstat-no" title="statement not covered" >    await this.init();</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    return new Promise(<span class="fstat-no" title="function not covered" >(r</span>esolve, reject) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (!this.db) {</span>
+<span class="cstat-no" title="statement not covered" >      if (!this.db) {</span>
 <span class="cstat-no" title="statement not covered" >        reject(new Error("Database not initialized"));</span>
 <span class="cstat-no" title="statement not covered" >        return;</span>
       }
@@ -938,7 +938,7 @@ interface OfflineReceipt {
       const store = <span class="cstat-no" title="statement not covered" >transaction.objectStore("user-preferences");</span>
       const request = <span class="cstat-no" title="statement not covered" >store.put({ key, value });</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      request.onsuccess = <span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      request.onsuccess = <span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >        resolve();</span>
       };
 &nbsp;
@@ -952,11 +952,11 @@ interface OfflineReceipt {
   /**
    * Get a user preference
    */
-<span class="fstat-no" title="function not covered" >  async </span>getPreference&lt;T&gt;(key: string, defaultValue: T): Promise&lt;T&gt; {
+<span class="fstat-no" title="function not covered" >  as</span>ync getPreference&lt;T&gt;(key: string, defaultValue: T): Promise&lt;T&gt; {
 <span class="cstat-no" title="statement not covered" >    await this.init();</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    return new Promise(<span class="fstat-no" title="function not covered" >(r</span>esolve, reject) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (!this.db) {</span>
+<span class="cstat-no" title="statement not covered" >      if (!this.db) {</span>
 <span class="cstat-no" title="statement not covered" >        reject(new Error("Database not initialized"));</span>
 <span class="cstat-no" title="statement not covered" >        return;</span>
       }
@@ -965,7 +965,7 @@ interface OfflineReceipt {
       const store = <span class="cstat-no" title="statement not covered" >transaction.objectStore("user-preferences");</span>
       const request = <span class="cstat-no" title="statement not covered" >store.get(key);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      request.onsuccess = <span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      request.onsuccess = <span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >        if (request.result) {</span>
 <span class="cstat-no" title="statement not covered" >          resolve(request.result.value);</span>
         } else {
@@ -981,14 +981,14 @@ interface OfflineReceipt {
   }
 }
 &nbsp;
-export const <span class="cstat-no" title="statement not covered" >offlineStorage = new OfflineStorage();</span></pre></td></tr></table></pre>
+export const offlineStorage = <span class="cstat-no" title="statement not covered" >new OfflineStorage();</span></pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-02-12T16:54:46.052Z
+                at 2026-02-12T19:39:03.152Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

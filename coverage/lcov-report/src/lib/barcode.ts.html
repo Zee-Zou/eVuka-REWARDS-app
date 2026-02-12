@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/71</span>
+                <span class='fraction'>0/58</span>
             </div>
         
             
@@ -39,14 +39,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/67</span>
+                <span class='fraction'>0/58</span>
             </div>
         
             
@@ -257,22 +257,22 @@
 <a name='L192'></a><a href='#L192'>192</a>
 <a name='L193'></a><a href='#L193'>193</a>
 <a name='L194'></a><a href='#L194'>194</a>
-<a name='L195'></a><a href='#L195'>195</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L195'></a><a href='#L195'>195</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -451,22 +451,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import {</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {
   BrowserMultiFormatReader,
   NotFoundException,
   ChecksumException,
   FormatException,
 } from "@zxing/library";
-<span class="cstat-no" title="statement not covered" >import { logger } from "./logger";</span>
-<span class="cstat-no" title="statement not covered" >import { ProcessingError } from "@/types/errors";</span>
+import { logger } from "./logger";
+import { ProcessingError } from "@/types/errors";
 &nbsp;
 // Product code types supported by the system
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >export enum P</span>roductCodeType {</span>
-<span class="cstat-no" title="statement not covered" >  BARCODE_EAN13 = "EAN_13",</span>
-<span class="cstat-no" title="statement not covered" >  BARCODE_UPC = "UPC",</span>
-<span class="cstat-no" title="statement not covered" >  BARCODE_QR = "QR_CODE",</span>
-<span class="cstat-no" title="statement not covered" >  BARCODE_CODE128 = "CODE_128",</span>
-<span class="cstat-no" title="statement not covered" >  MANUAL_CODE = "MANUAL_CODE",</span>
+export enum ProductCodeType {
+  BARCODE_EAN13 = "EAN_13",
+  BARCODE_UPC = "UPC",
+  BARCODE_QR = "QR_CODE",
+  BARCODE_CODE128 = "CODE_128",
+  MANUAL_CODE = "MANUAL_CODE",
 }
 &nbsp;
 export interface ProductCode {
@@ -481,7 +481,7 @@ export interface ProductCode {
  * @param videoElement HTML video element containing the barcode
  * @returns The decoded barcode value
  */
-export const <span class="cstat-no" title="statement not covered" >scanBarcode = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >a</span>sync </span>(</span>
+export const scanBarcode = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >as</span>ync (</span>
   videoElement: HTMLVideoElement,
 ): Promise&lt;string&gt; =&gt; {
   const codeReader = <span class="cstat-no" title="statement not covered" >new BrowserMultiFormatReader();</span>
@@ -498,7 +498,7 @@ export const <span class="cstat-no" title="statement not covered" >scanBarcode =
  * @param imageOrVideoElement HTML image or video element containing the barcode
  * @returns The decoded barcode value and type
  */
-export const <span class="cstat-no" title="statement not covered" >scanBarcodeEnhanced = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >a</span>sync </span>(</span>
+export const scanBarcodeEnhanced = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >as</span>ync (</span>
   imageOrVideoElement: HTMLImageElement | HTMLVideoElement,
 ): Promise&lt;ProductCode&gt; =&gt; {
 <span class="cstat-no" title="statement not covered" >  try {</span>
@@ -564,14 +564,14 @@ export const <span class="cstat-no" title="statement not covered" >scanBarcodeEn
  * @param code The product code entered by the user
  * @returns Validated product code object
  */
-export const <span class="cstat-no" title="statement not covered" >validateProductCode = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span></span></span>
+export const validateProductCode = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span></span>
   code: string,
   userId: string,
 ): ProductCode =&gt; {
   // Remove any whitespace and normalize
   const normalizedCode = <span class="cstat-no" title="statement not covered" >code.trim().toUpperCase();</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if (!normalizedCode) {</span>
+<span class="cstat-no" title="statement not covered" >  if (!normalizedCode) {</span>
 <span class="cstat-no" title="statement not covered" >    throw new ProcessingError("Product code cannot be empty.");</span>
   }
 &nbsp;
@@ -613,7 +613,7 @@ export const <span class="cstat-no" title="statement not covered" >validateProdu
  * @param isPromotion Whether the code is part of a promotion
  * @returns The number of points earned
  */
-export const <span class="cstat-no" title="statement not covered" >calculateProductCodePoints = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span></span></span>
+export const calculateProductCodePoints = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span></span>
   code: ProductCode,
   isPromotion: boolean = <span class="branch-0 cbranch-no" title="branch not covered" >false,</span>
 ): number =&gt; {
@@ -639,7 +639,7 @@ export const <span class="cstat-no" title="statement not covered" >calculateProd
   }
 &nbsp;
   // Apply promotion multiplier if applicable
-<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if (isPromotion) {</span>
+<span class="cstat-no" title="statement not covered" >  if (isPromotion) {</span>
 <span class="cstat-no" title="statement not covered" >    points *= 2; </span>// Double points for promotional codes
   }
 &nbsp;
@@ -652,7 +652,7 @@ export const <span class="cstat-no" title="statement not covered" >calculateProd
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-02-12T16:54:46.052Z
+                at 2026-02-12T19:39:03.152Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

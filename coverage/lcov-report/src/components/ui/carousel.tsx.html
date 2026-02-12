@@ -25,14 +25,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/65</span>
+                <span class='fraction'>0/55</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/28</span>
+                <span class='fraction'>0/33</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/65</span>
+                <span class='fraction'>0/55</span>
             </div>
         
             
@@ -323,14 +323,10 @@
 <a name='L258'></a><a href='#L258'>258</a>
 <a name='L259'></a><a href='#L259'>259</a>
 <a name='L260'></a><a href='#L260'>260</a>
-<a name='L261'></a><a href='#L261'>261</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<a name='L261'></a><a href='#L261'>261</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -353,6 +349,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -577,20 +577,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import * as React from "react"</span>
-<span class="cstat-no" title="statement not covered" >import { ArrowLeftIcon, ArrowRightIcon } from "@radix-ui/react-icons"</span>
-<span class="cstat-no" title="statement not covered" >import useEmblaCarousel, {</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import * as React from "react"
+import { ArrowLeftIcon, ArrowRightIcon } from "@radix-ui/react-icons"
+import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from "embla-carousel-react"
 &nbsp;
-<span class="cstat-no" title="statement not covered" >import { cn } from "@/lib/utils"</span>
-<span class="cstat-no" title="statement not covered" >import { Button } from "@/components/ui/button"</span>
+import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
 &nbsp;
 type CarouselApi = UseEmblaCarouselType[1]
 type UseCarouselParameters = Parameters&lt;typeof useEmblaCarousel&gt;
@@ -618,7 +618,7 @@ const CarouselContext = <span class="cstat-no" title="statement not covered" >Re
 function <span class="fstat-no" title="function not covered" >useCarousel(</span>) {
   const context = <span class="cstat-no" title="statement not covered" >React.useContext(CarouselContext)</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if (!context) {</span>
+<span class="cstat-no" title="statement not covered" >  if (!context) {</span>
 <span class="cstat-no" title="statement not covered" >    throw new Error("useCarousel must be used within a &lt;Carousel /&gt;")</span>
   }
 &nbsp;
@@ -652,7 +652,7 @@ const Carousel = <span class="cstat-no" title="statement not covered" >React.for
     const [canScrollNext, setCanScrollNext] = <span class="cstat-no" title="statement not covered" >React.useState(false)</span>
 &nbsp;
     const onSelect = <span class="cstat-no" title="statement not covered" >React.useCallback(<span class="fstat-no" title="function not covered" >(a</span>pi: CarouselApi) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (!api) {</span>
+<span class="cstat-no" title="statement not covered" >      if (!api) {</span>
 <span class="cstat-no" title="statement not covered" >        return</span>
       }
 &nbsp;
@@ -660,11 +660,11 @@ const Carousel = <span class="cstat-no" title="statement not covered" >React.for
 <span class="cstat-no" title="statement not covered" >      setCanScrollNext(api.canScrollNext())</span>
     }, [])
 &nbsp;
-    const scrollPrev = <span class="cstat-no" title="statement not covered" >React.useCallback(<span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
+    const scrollPrev = <span class="cstat-no" title="statement not covered" >React.useCallback(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      api?.scrollPrev()</span>
     }, [api])
 &nbsp;
-    const scrollNext = <span class="cstat-no" title="statement not covered" >React.useCallback(<span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
+    const scrollNext = <span class="cstat-no" title="statement not covered" >React.useCallback(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      api?.scrollNext()</span>
     }, [api])
 &nbsp;
@@ -673,7 +673,7 @@ const Carousel = <span class="cstat-no" title="statement not covered" >React.for
 <span class="cstat-no" title="statement not covered" >        if (event.key === "ArrowLeft") {</span>
 <span class="cstat-no" title="statement not covered" >          event.preventDefault()</span>
 <span class="cstat-no" title="statement not covered" >          scrollPrev()</span>
-        } else <span class="cstat-no" title="statement not covered" ><span class="missing-if-branch" title="if path not taken" >I</span>if (event.key === "ArrowRight") {</span>
+        } else <span class="cstat-no" title="statement not covered" >if (event.key === "ArrowRight") {</span>
 <span class="cstat-no" title="statement not covered" >          event.preventDefault()</span>
 <span class="cstat-no" title="statement not covered" >          scrollNext()</span>
         }
@@ -681,16 +681,16 @@ const Carousel = <span class="cstat-no" title="statement not covered" >React.for
       [scrollPrev, scrollNext]
     )
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    React.useEffect(<span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (!api || !setApi) {</span>
+<span class="cstat-no" title="statement not covered" >    React.useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      if (!api || !setApi) {</span>
 <span class="cstat-no" title="statement not covered" >        return</span>
       }
 &nbsp;
 <span class="cstat-no" title="statement not covered" >      setApi(api)</span>
     }, [api, setApi])
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    React.useEffect(<span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (!api) {</span>
+<span class="cstat-no" title="statement not covered" >    React.useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      if (!api) {</span>
 <span class="cstat-no" title="statement not covered" >        return</span>
       }
 &nbsp;
@@ -698,7 +698,7 @@ const Carousel = <span class="cstat-no" title="statement not covered" >React.for
 <span class="cstat-no" title="statement not covered" >      api.on("reInit", onSelect)</span>
 <span class="cstat-no" title="statement not covered" >      api.on("select", onSelect)</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      return <span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      return <span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >        api?.off("select", onSelect)</span>
       }
     }, [api, onSelect])
@@ -837,11 +837,11 @@ const CarouselNext = <span class="cstat-no" title="statement not covered" >React
 &nbsp;
 export {
   type CarouselApi,
-<span class="cstat-no" title="statement not covered" >  Carousel,</span>
-<span class="cstat-no" title="statement not covered" >  CarouselContent,</span>
-<span class="cstat-no" title="statement not covered" >  CarouselItem,</span>
-<span class="cstat-no" title="statement not covered" >  CarouselPrevious,</span>
-<span class="cstat-no" title="statement not covered" >  CarouselNext,</span>
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
 }
 &nbsp;</pre></td></tr></table></pre>
 
@@ -850,7 +850,7 @@ export {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-02-12T16:54:46.052Z
+                at 2026-02-12T19:39:03.152Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
