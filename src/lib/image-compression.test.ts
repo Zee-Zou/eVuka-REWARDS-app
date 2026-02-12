@@ -103,14 +103,20 @@ describe("Image Compression", () => {
       );
     });
 
-    it("should handle compression errors", async () => {
+    it("should handle compression errors by returning original file", async () => {
       const file = createMockFile(1000);
 
       (imageCompression as jest.MockedFunction<typeof imageCompression>).mockRejectedValue(
         new Error("Compression failed")
       );
 
-      await expect(compressReceiptImage(file)).rejects.toThrow("Compression failed");
+      const result = await compressReceiptImage(file);
+
+      // Should return original file when compression fails
+      expect(result.compressedFile).toBe(file);
+      expect(result.compressionRatio).toBe(0);
+      expect(result.originalSize).toBe(1000);
+      expect(result.compressedSize).toBe(1000);
     });
 
     it("should measure compression time", async () => {

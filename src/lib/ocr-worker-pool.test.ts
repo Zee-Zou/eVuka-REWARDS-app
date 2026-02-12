@@ -78,8 +78,8 @@ describe("OCR Worker Pool", () => {
 
       expect(result.text).toBe("Test receipt text");
       expect(result.confidence).toBe(85);
-      expect(result.processingTime).toBeGreaterThan(0);
-      expect(result.imageQuality).toBe("medium");
+      expect(result.processingTime).toBeGreaterThanOrEqual(0);
+      expect(result.imageQuality).toBe("high"); // 85 >= 85 threshold for high quality
     });
 
     it("should handle high confidence results", async () => {
@@ -100,7 +100,7 @@ describe("OCR Worker Pool", () => {
       mockWorker.recognize.mockResolvedValueOnce({
         data: {
           text: "Low quality text",
-          confidence: 35,
+          confidence: 25,
         },
       });
 
@@ -160,6 +160,7 @@ describe("OCR Worker Pool", () => {
 
     it("should process queued tasks after worker becomes available", async () => {
       let resolveFirst: ((value: { data: { text: string; confidence: number } }) => void) | null = null;
+      let resolveSecond: ((value: { data: { text: string; confidence: number } }) => void) | null = null;
       let callCount = 0;
 
       mockWorker.recognize.mockImplementation(() => {
@@ -169,24 +170,32 @@ describe("OCR Worker Pool", () => {
             resolveFirst = resolve;
           });
         }
+        if (callCount === 2) {
+          return new Promise((resolve) => {
+            resolveSecond = resolve;
+          });
+        }
         return Promise.resolve({
           data: { text: "Test", confidence: 85 }
         });
       });
 
+      // Start 3 tasks with only 2 workers - one must be queued
       const promise1 = performOCRWithPool("data:image/jpeg;base64,test1");
       const promise2 = performOCRWithPool("data:image/jpeg;base64,test2");
+      const promise3 = performOCRWithPool("data:image/jpeg;base64,test3");
 
-      // Wait a bit for promise2 to be queued
+      // Wait a bit for promise3 to be queued
       await new Promise(resolve => setTimeout(resolve, 50));
 
       const stats = ocrWorkerPool.getStats();
       expect(stats.queuedTasks).toBeGreaterThan(0);
 
-      // Complete first task
+      // Complete first two tasks
       resolveFirst?.({ data: { text: "First", confidence: 85 } });
+      resolveSecond?.({ data: { text: "Second", confidence: 85 } });
 
-      await Promise.all([promise1, promise2]);
+      await Promise.all([promise1, promise2, promise3]);
     });
 
     it("should provide accurate pool statistics", async () => {

@@ -9,6 +9,31 @@ require('@testing-library/jest-dom');
 // Setup fake IndexedDB for offline storage tests
 require('fake-indexeddb/auto');
 
+// Mock the utils module to avoid issues with clsx and tailwind-merge in tests
+jest.mock('@/lib/utils');
+
+// Mock import.meta for Vite environment variables
+// This must be set before any modules are imported
+global.importMeta = {
+  env: {
+    VITE_SUPABASE_URL: "https://test.supabase.co",
+    VITE_SUPABASE_ANON_KEY: "test-anon-key",
+    VITE_ENABLE_OCR: "true",
+    VITE_ENABLE_OFFLINE: "true",
+    VITE_ENABLE_PWA: "true",
+    VITE_DEBUG_LOGS: "false",
+    VITE_ENABLE_EXTERNAL_LOGGING: "false",
+    VITE_ENABLE_CSP: "false",
+    VITE_WEBSOCKET_URL: "http://localhost:3001",
+    VITE_VAPID_PUBLIC_KEY: "test-vapid-key",
+    VITE_LOGGING_ENDPOINT: undefined,
+    VITE_MONITORING_ENDPOINT: undefined,
+    MODE: "test",
+    DEV: false,
+    PROD: false,
+  },
+};
+
 // Mock Web Crypto API for encryption tests
 const crypto = require('crypto');
 
